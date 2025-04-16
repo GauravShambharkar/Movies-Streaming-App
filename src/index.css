@@ -2,15 +2,19 @@
 
 
 @font-face {
-  font-family: "satoshi" ;
+  font-family: "satoshi";
   src: url(Satoshi-Variable.ttf);
 }
 
 
-*{
+* {
   font-family: satoshi;
 }
 
-html, body{
-  background-color: #121212;
+html,
+body {
+  background-image: url("https://media.graphassets.com/iR6tP0bbSOGHvRC31UOF");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
