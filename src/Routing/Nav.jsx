@@ -1,32 +1,39 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Routing from "./Routing";
-import { RiMovie2Line } from "@remixicon/react";
+import { RiColorFilterAiLine, RiFile2Line, RiFilmLine, RiHomeWifiLine, RiMovie2Line } from "@remixicon/react";
 
 const Nav = () => {
   return (
     <>
     {/* navBar */}
-    <div className="navbar border border-white flex justify-between p-3 ">
+    <div className="navbar w-full justify-between fixed z-1 gap-4 items-center px-2 border-r border-[#7d7d7d] bg-[#000000] backdrop-blur-lg flex pt-3">
 
     {/* navBar left side */}
-      <div className="text-red-700">
-      <RiMovie2Line/>
+      <div className="text-[#4d7cff] items-center text-2xl p-2 flex">
+      <RiMovie2Line/> 
+      <h1 className="font-black text-[#5381ff]">StreamUp</h1>
       </div>
 
       {/* navBar right side */}
-      <div className="flex gap-4 " >
+      <div className="flex flex-row items-center gap-2 px-2 border border-white" >
 
           <NavLink to='/' className={({isActive})=>{
-            return isActive? "text-red-500" : "text-[#ffffff]"
-          }}  >Home</NavLink>
+            return isActive? "text-[#ffffff] flex gap-2 " : "text-[#ffffff] flex gap-2"
+          }}>
+            <RiHomeWifiLine/>
+            Home</NavLink>
           <NavLink to='/series' className={({isActive})=>{
-            return isActive? "text-red-500" : "text-[#ffffff]"
-          }}  >Series</NavLink>
+            return isActive? "text-[#ffffff] flex gap-2 " : "text-[#ffffff] flex gap-2"
+          }}  >
+            <RiColorFilterAiLine/>
+            Series</NavLink>
           <NavLink to='/movies' className={({isActive})=>{
-            return isActive? "text-red-500" : "text-[#ffffff]"
-          }}  >Movies</NavLink>
-          <input type="input" placeholder="Search" className="text-white border px-2 border-[#7a7a7a] rounded-md " />
+            return isActive? "text-[#ffffff] flex gap-2 " : "text-[#ffffff] flex gap-2"
+          }}  >
+            <RiFilmLine/>
+            
+            Movies</NavLink>
       </div>
     </div>
 

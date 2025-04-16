@@ -5,7 +5,7 @@ import Nav from "./Routing/Nav";
 function App() {
   return (
     <>
-      <div className="main w-[95%] mx-auto h-screen ">
+      <div className="main w-full mx-auto h-screen ">
         <Nav />
       </div>
     </>
