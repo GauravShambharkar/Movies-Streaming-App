@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+
+@font-face {
+  font-family: "satoshi" ;
+  src: url(Satoshi-Variable.ttf);
+}
+
+
+*{
+  font-family: satoshi;
+}
+
+html, body{
+  background-color: #121212;
+}
