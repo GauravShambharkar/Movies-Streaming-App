@@ -26,6 +26,7 @@ const Nav = () => {
           <NavLink to='/movies' className={({isActive})=>{
             return isActive? "text-red-500" : "text-[#ffffff]"
           }}  >Movies</NavLink>
+          <input type="input" placeholder="Search" className="text-white border px-2 border-[#7a7a7a] rounded-md " />
       </div>
     </div>
 
