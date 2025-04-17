@@ -86,17 +86,17 @@ useEffect(()=>{
 
     </div>
 
-      {query.length>0? (<div id="inserchTab" className="top-17 z-1 bg-black border right-0 border-white overflow-auto scroll-auto absolute flex flex-col gap-4 p-4 w-full h-110">
+      {query.length>0? (<div id="inserchTab" className="top-17 z-1 bg-[#0000000b] backdrop-blur-2xl border right-0 border-white overflow-auto scroll-auto absolute grid grid-cols-2 gap-4 p-4 w-full h-110">
         {showQueryData.map((item,id)=>{
-          return <div className="flex gap-4 bg-[#1d1d1d] border-white rounded-sm child hover:bg-[#2c2c2c] duration-220 transition-colors ease-in-out">
+            return <div className="flex gap-4 bg-[#1d1d1d] border w-full border-[#ffffff00] rounded-sm child hover:bg-[#2c2c2c] duration-220 transition-colors ease-in-out">
           <img
-            className="rounded-sm w-35 object-contain"
-            src="https://m.media-amazon.com/images/M/MV5BM2FiMjQ0ZjAtYzc1OC00NzgzLWIyNmQtYmIwYjdhZWM5MmRiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+            className="rounded-sm w-40 object-cover  border-white"
+            src={item.backdrop_path || item.profile_path ? `https://image.tmdb.org/t/p/original/${item.backdrop_path || item.profile_path}` : "https://scubapro.johnsonoutdoors.com/themes/custom/jo_base/assets/images/no-image-available-en.jpg" }
             alt=""
           />
           {/* text content */}
           <div className="flex flex-col py-2 gap-2 w-fit">
-            <h1 className="font-bold text-[#9cabff]">{item.name}</h1>
+            <h1 className="font-bold text-[#9cabff]">{item.original_name}{item.original_title}</h1>
             <h1 className="text-[#8e9be3]">
               Description: Lorem ipsum, dolor sit amet consectetur adipisicing
               elit. Dolorum quos error sint officia atque odit perferendis ipsa
@@ -108,7 +108,7 @@ useEffect(()=>{
             <h1 className="text-[#8e9be3]">Rating:9.9/10</h1>
           </div>
         </div>})}      
-      </div>) : ''}
+      </div>) : ""}
       <Routing/>
 
     </>

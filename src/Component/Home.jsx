@@ -10,8 +10,8 @@ const Home = () => {
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center gap-4 backdrop-blur-sm p-4 border w-full h-full mix-blend-difference">
-        <h1 className="stroke-1 stroke-white p-4 rounded-2xl font-semibold text-[#7499ff] max-sm:text-[30px] max-md:text-3xl lg:text-7xl text-center">
+      <div className="flex flex-col  justify-center items-center gap-4 backdrop-blur-sm p-4 border w-full h-full">
+        <h1 className="stroke-1  p-4 rounded-2xl font-semibold text-[#2b63ff] max-sm:text-[30px] max-md:text-3xl lg:text-7xl text-center">
           Your Streaming Guide For <br /> Movies, TV Shows & <br /> Sports.
         </h1>
         <p className="text-[#bdbdbd] text-center">
