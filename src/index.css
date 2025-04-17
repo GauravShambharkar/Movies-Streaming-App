@@ -19,15 +19,16 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-}
 
-::-webkit-scrollbar{
-  width: 8px;
-  height: 5px;
-}
-
-::-webkit-scrollbar-thumb{
-  background: #5451ff;
-  border-radius: 10px;
-  border: 2px solid black;
+  ::-webkit-scrollbar{
+    width: 9px;
+    height: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb{
+    background: #a6a6a6;
+    border-radius: 10px;
+    border: 2px solid black;
+  }
+  
 }
