@@ -7,6 +7,7 @@ const Home = () => {
     nagivate("/trending");
   }
 
+
   return (
     <>
       <div className="flex flex-col justify-center items-center gap-4 backdrop-blur-sm p-4 border w-full h-full mix-blend-difference">
@@ -26,69 +27,7 @@ const Home = () => {
         </button>
       </div>
 
-      <div className="top-15 right-0 border-white overflow-auto scroll-auto absolute flex flex-col gap-4 p-4 w-full h-100">
-        <div className="flex gap-4 bg-[#1d1d1d] border-white rounded-sm child hover:bg-[#2c2c2c] duration-220 transition-colors ease-in-out">
-          <img
-            className="rounded-sm w-35 object-contain"
-            src="https://m.media-amazon.com/images/M/MV5BM2FiMjQ0ZjAtYzc1OC00NzgzLWIyNmQtYmIwYjdhZWM5MmRiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
-            alt=""
-          />
-          {/* text content */}
-          <div className="flex flex-col py-2 gap-2 w-fit">
-            <h1 className="font-bold text-[#9cabff]">Loki -Season 2</h1>
-            <h1 className="text-[#8e9be3]">
-              Description: Lorem ipsum, dolor sit amet consectetur adipisicing
-              elit. Dolorum quos error sint officia atque odit perferendis ipsa
-              ad asperiores ipsum, fuga aliquid numquam magni architecto facere
-              quidem fugiat labore laborum soluta. Molestiae hic tempore
-              corporis distinctio cum doloribus sint repudiandae labore.
-              Aspernatur, quos vel! Repellat molestiae officia dolores rem est.
-            </h1>
-            <h1 className="text-[#8e9be3]">Rating:9.9/10</h1>
-          </div>
-        </div>
-        <div className="flex gap-4 bg-[#1d1d1d] border-white rounded-sm child hover:bg-[#2c2c2c] duration-220 transition-colors ease-in-out">
-          <img
-            className="rounded-sm w-35 object-contain"
-            src="https://m.media-amazon.com/images/M/MV5BM2FiMjQ0ZjAtYzc1OC00NzgzLWIyNmQtYmIwYjdhZWM5MmRiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
-            alt=""
-          />
-          {/* text content */}
-          <div className="flex flex-col py-2 gap-2 w-fit">
-            <h1 className="font-bold text-[#9cabff]">Loki -Season 2</h1>
-            <h1 className="text-[#8e9be3]">
-              Description: Lorem ipsum, dolor sit amet consectetur adipisicing
-              elit. Dolorum quos error sint officia atque odit perferendis ipsa
-              ad asperiores ipsum, fuga aliquid numquam magni architecto facere
-              quidem fugiat labore laborum soluta. Molestiae hic tempore
-              corporis distinctio cum doloribus sint repudiandae labore.
-              Aspernatur, quos vel! Repellat molestiae officia dolores rem est.
-            </h1>
-            <h1 className="text-[#8e9be3]">Rating:9.9/10</h1>
-          </div>
-        </div>
-        <div className="flex gap-4 bg-[#1d1d1d] border-white rounded-sm child hover:bg-[#2c2c2c] duration-220 transition-colors ease-in-out">
-          <img
-            className="rounded-sm w-35 object-contain"
-            src="https://m.media-amazon.com/images/M/MV5BM2FiMjQ0ZjAtYzc1OC00NzgzLWIyNmQtYmIwYjdhZWM5MmRiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
-            alt=""
-          />
-          {/* text content */}
-          <div className="flex flex-col py-2 gap-2 w-fit">
-            <h1 className="font-bold text-[#9cabff]">Loki -Season 2</h1>
-            <h1 className="text-[#8e9be3]">
-              Description: Lorem ipsum, dolor sit amet consectetur adipisicing
-              elit. Dolorum quos error sint officia atque odit perferendis ipsa
-              ad asperiores ipsum, fuga aliquid numquam magni architecto facere
-              quidem fugiat labore laborum soluta. Molestiae hic tempore
-              corporis distinctio cum doloribus sint repudiandae labore.
-              Aspernatur, quos vel! Repellat molestiae officia dolores rem est.
-            </h1>
-            <h1 className="text-[#8e9be3]">Rating:9.9/10</h1>
-          </div>
-        </div>
-        
-      </div>
+     
 
       {/* Features Section */}
       <div className="flex flex-col items-center gap-6 bg-[#121212] px-6 py-10 w-full text-white">

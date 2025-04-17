@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Routing from "./Routing";
 import { RiCloseCircleLine, RiCloseLargeLine, RiColorFilterAiLine, RiCrossLine, RiFile2Line, RiFilmLine, RiHomeWifiLine, RiMovie2Line, RiSearch2Line } from "@remixicon/react";
 
 const Nav = () => {
 
+  const [query,setQuery] = useState('')
+  console.log(query);
 
+function removeSearchQuery(){
+  document.querySelector('input').value = ''
+}
 
   return (
     <>
@@ -50,21 +55,82 @@ const Nav = () => {
 
 
             <div className="input flex gap-2 w-[50%] p-2 rounded-sm ">
+            <input onChange={(e)=>setQuery(e.target.value)} type="text" placeholder="Search" className="border-b border-[#ffffff] text-white outline-none w-full" />
+            {query.length > 0? (<RiCloseLargeLine onClick={()=>{setQuery(''),removeSearchQuery()}} className="cursor-pointer text-white"/>) : ""}
             <RiSearch2Line className="text-white" />
-            <input type="text" placeholder="Search" className="border-b border-[#ffffff] text-white outline-none w-full" />
-            <RiCloseLargeLine className="cursor-pointer text-white" />
-            <button className="px-2 bg-[#578dff] text-[#ffffff] rounded-md" >Search</button>
             </div>
       </div>
 
 
     </div>
 
-
-
+      {query.length>0? (<div id="inserchTab" className="top-17 z-1 bg-black border right-0 border-white overflow-auto scroll-auto absolute flex flex-col gap-4 p-4 w-full h-110">
+        <div className="flex gap-4 bg-[#1d1d1d] border-white rounded-sm child hover:bg-[#2c2c2c] duration-220 transition-colors ease-in-out">
+          <img
+            className="rounded-sm w-35 object-contain"
+            src="https://m.media-amazon.com/images/M/MV5BM2FiMjQ0ZjAtYzc1OC00NzgzLWIyNmQtYmIwYjdhZWM5MmRiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+            alt=""
+          />
+          {/* text content */}
+          <div className="flex flex-col py-2 gap-2 w-fit">
+            <h1 className="font-bold text-[#9cabff]">Loki -Season 2</h1>
+            <h1 className="text-[#8e9be3]">
+              Description: Lorem ipsum, dolor sit amet consectetur adipisicing
+              elit. Dolorum quos error sint officia atque odit perferendis ipsa
+              ad asperiores ipsum, fuga aliquid numquam magni architecto facere
+              quidem fugiat labore laborum soluta. Molestiae hic tempore
+              corporis distinctio cum doloribus sint repudiandae labore.
+              Aspernatur, quos vel! Repellat molestiae officia dolores rem est.
+            </h1>
+            <h1 className="text-[#8e9be3]">Rating:9.9/10</h1>
+          </div>
+        </div>
+        <div className="flex gap-4 bg-[#1d1d1d] border-white rounded-sm child hover:bg-[#2c2c2c] duration-220 transition-colors ease-in-out">
+          <img
+            className="rounded-sm w-35 object-contain"
+            src="https://m.media-amazon.com/images/M/MV5BM2FiMjQ0ZjAtYzc1OC00NzgzLWIyNmQtYmIwYjdhZWM5MmRiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+            alt=""
+          />
+          {/* text content */}
+          <div className="flex flex-col py-2 gap-2 w-fit">
+            <h1 className="font-bold text-[#9cabff]">Loki -Season 2</h1>
+            <h1 className="text-[#8e9be3]">
+              Description: Lorem ipsum, dolor sit amet consectetur adipisicing
+              elit. Dolorum quos error sint officia atque odit perferendis ipsa
+              ad asperiores ipsum, fuga aliquid numquam magni architecto facere
+              quidem fugiat labore laborum soluta. Molestiae hic tempore
+              corporis distinctio cum doloribus sint repudiandae labore.
+              Aspernatur, quos vel! Repellat molestiae officia dolores rem est.
+            </h1>
+            <h1 className="text-[#8e9be3]">Rating:9.9/10</h1>
+          </div>
+        </div>
+        <div className="flex gap-4 bg-[#1d1d1d] border-white rounded-sm child hover:bg-[#2c2c2c] duration-220 transition-colors ease-in-out">
+          <img
+            className="rounded-sm w-35 object-contain"
+            src="https://m.media-amazon.com/images/M/MV5BM2FiMjQ0ZjAtYzc1OC00NzgzLWIyNmQtYmIwYjdhZWM5MmRiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+            alt=""
+          />
+          {/* text content */}
+          <div className="flex flex-col py-2 gap-2 w-fit">
+            <h1 className="font-bold text-[#9cabff]">Loki -Season 2</h1>
+            <h1 className="text-[#8e9be3]">
+              Description: Lorem ipsum, dolor sit amet consectetur adipisicing
+              elit. Dolorum quos error sint officia atque odit perferendis ipsa
+              ad asperiores ipsum, fuga aliquid numquam magni architecto facere
+              quidem fugiat labore laborum soluta. Molestiae hic tempore
+              corporis distinctio cum doloribus sint repudiandae labore.
+              Aspernatur, quos vel! Repellat molestiae officia dolores rem est.
+            </h1>
+            <h1 className="text-[#8e9be3]">Rating:9.9/10</h1>
+          </div>
+        </div>
+      </div>) : ''}
       <Routing/>
+
     </>
   );
 };
+
 
 export default Nav;
