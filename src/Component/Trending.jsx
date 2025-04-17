@@ -38,12 +38,14 @@ const Trending = () => {
 
   return (
     <div className="w-full  border backdrop-blur-sm py-2 flex flex-col border-white justify-center items-center gap-8 ">
-      <div className="banner py-2 text-white  border-white w-full h-110 mt-15 bg-cover bg-center "
+      <div
+        className="banner py-2 text-white border-white w-250 rounded-2xl h-120 mt-20 bg-cover bg-center"
         style={{
-          backgroundImage:`linear-gradient(to top, [#000000] ,url('https://th.bing.com/th/id/OIP.m-FQh5HTxOjPPmwORMbI-wHaEK?rs=1&pid=ImgDetMain')`,
-        }}>
-         
-      </div>
+          backgroundImage: `linear-gradient(to top, #000000 , rgba(0,0,0,0.10), rgba(0, 0, 0, 0)), url('https://www.onoticiado.com.br/wp-content/uploads/2023/05/oppenheimer-novo-trailer-univers.jpg')`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+      ></div>
 
       <h2 className="text-[#7499ff] lg:text-5xl text-3xl font-bold text-center">
         Trending Now

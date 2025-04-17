@@ -102,8 +102,6 @@ useEffect(()=>{
               elit. Dolorum quos error sint officia atque odit perferendis ipsa
               ad asperiores ipsum, fuga aliquid numquam magni architecto facere
               quidem fugiat labore laborum soluta. Molestiae hic tempore
-              corporis distinctio cum doloribus sint repudiandae labore.
-              Aspernatur, quos vel! Repellat molestiae officia dolores rem est.
             </h1>
             <h1 className="text-[#8e9be3]">Rating:9.9/10</h1>
           </div>
