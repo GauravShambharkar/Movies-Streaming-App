@@ -52,24 +52,24 @@ useEffect(()=>{
 
 
             <NavLink to='/' className={({isActive})=>{
-              return isActive? "text-[#a2c9ff]  items-center flex gap-2 text-[13px] " : "text-[#ffffff] hover:text-[#4576ff] items-center text-[13px] flex gap-2"
+              return isActive? "text-[#f7ff66]  items-center flex gap-2 text-[13px] " : "text-[#ffffff] hover:text-[#fbffb7] items-center text-[13px] flex gap-2"
             }}>
               Home</NavLink>
             <NavLink to='/trending' className={({isActive})=>{
-              return isActive? "text-[#a2c9ff] flex gap-2 items-center text-[13px]" : "text-[#ffffff] hover:text-[#4576ff] items-center flex text-[13px] gap-2"
+              return isActive? "text-[#f7ff66] flex gap-2 items-center text-[13px]" : "text-[#ffffff] hover:text-[#fbffb7] items-center flex text-[13px] gap-2"
             }}  >
               Trending</NavLink>
             <NavLink to='/popular' className={({isActive})=>{
-              return isActive? "text-[#a2c9ff] flex gap-2 items-center text-[13px]" : "text-[#ffffff] hover:text-[#4576ff] items-center flex text-[13px] gap-2"
+              return isActive? "text-[#f7ff66] flex gap-2 items-center text-[13px]" : "text-[#ffffff] hover:text-[#fbffb7] items-center flex text-[13px] gap-2"
             }}  >
               Popular</NavLink>
             <NavLink to='/movies' className={({isActive})=>{
-              return isActive? "text-[#a2c9ff] flex gap-2 items-center text-[13px]" : "text-[#ffffff] hover:text-[#4576ff] items-center flex text-[13px] gap-2"
+              return isActive? "text-[#f7ff66] flex gap-2 items-center text-[13px]" : "text-[#ffffff] hover:text-[#fbffb7] items-center flex text-[13px] gap-2"
             }}  >
               Movies</NavLink>
 
             <NavLink to='/tvshow' className={({isActive})=>{
-              return isActive? "text-[#a2c9ff] flex gap-2 items-center text-[13px]" : "text-[#ffffff] hover:text-[#4576ff] items-center flex text-[13px] gap-2"
+              return isActive? "text-[#f7ff66] flex gap-2 items-center text-[13px]" : "text-[#ffffff] hover:text-[#fbffb7] items-center flex text-[13px] gap-2"
             }}  >
               TVshow</NavLink>
 
@@ -86,24 +86,24 @@ useEffect(()=>{
 
     </div>
 
-      {query.length>0? (<div id="inserchTab" className="top-17 z-1 bg-[#0000000b] backdrop-blur-2xl border right-0 border-white overflow-auto scroll-auto absolute grid grid-cols-2 gap-4 p-4 w-full h-110">
+      {query.length>0? (<div id="inserchTab" className="top-17 z-1 bg-[#0000000b]  backdrop-blur-2xl border right-0 border-white overflow-auto scroll-auto absolute grid grid-cols-2 max-md:grid-cols-1 max-lg:grid-cols-1  gap-4 p-4 w-full h-110">
+        {/* child cards */}
         {showQueryData.map((item,id)=>{
-            return <div className="flex gap-4 bg-[#1d1d1d] border w-full border-[#ffffff00] rounded-sm child hover:bg-[#2c2c2c] duration-220 transition-colors ease-in-out">
+            return <div key={id} className="flex gap-4 max-md:h-40 border border-white bg-[#1d1d1d] w-full rounded-sm child hover:bg-[#2c2c2c] duration-220 transition-colors ease-in-out">
           <img
-            className="rounded-sm w-40 object-cover  border-white"
+            className="rounded-sm w-40 h-50 max-md:w-25 max-md:h-full object-cover  border-white"
             src={item.backdrop_path || item.profile_path ? `https://image.tmdb.org/t/p/original/${item.backdrop_path || item.profile_path}` : "https://scubapro.johnsonoutdoors.com/themes/custom/jo_base/assets/images/no-image-available-en.jpg" }
             alt=""
           />
           {/* text content */}
-          <div className="flex flex-col py-2 gap-2 w-fit">
-            <h1 className="font-bold text-[#9cabff]">{item.original_name}{item.original_title}</h1>
-            <h1 className="text-[#8e9be3]">
-              Description: Lorem ipsum, dolor sit amet consectetur adipisicing
-              elit. Dolorum quos error sint officia atque odit perferendis ipsa
-              ad asperiores ipsum, fuga aliquid numquam magni architecto facere
-              quidem fugiat labore laborum soluta. Molestiae hic tempore
+          <div className="flex flex-col py-2 gap-2 border border-white pr-2 w-fit">
+            <h1 className="font-bold text-[#9cabff] max-md:text-[14px] ">{item.original_name || item.original_title}</h1>
+            <h1 className="text-[#8e9be3] max-sm:text-[12px]">
+              {item.overview?.length > 150
+                ? `${item.overview.slice(0, 150)}...`
+                : item.overview}
             </h1>
-            <h1 className="text-[#8e9be3]">Rating:9.9/10</h1>
+            <h1 className="text-[#8e9be3] max-sm:text-[12px]">Rating:9.9/10</h1>
           </div>
         </div>})}      
       </div>) : ""}

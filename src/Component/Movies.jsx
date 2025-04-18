@@ -26,7 +26,7 @@ const movieList = [
 const Movies = () => {
   return (
     <div className="w-full h-full border p-4 backdrop-blur-sm flex flex-col justify-center items-center gap-8">
-      <h2 className="text-[#7499ff] lg:text-5xl text-3xl font-bold text-center">
+      <h2 className="text-[#f7ff66] lg:text-5xl text-3xl font-bold text-center">
         🎬 Featured Movies
       </h2>
       <p className="text-[#bdbdbd] text-center max-w-2xl">
