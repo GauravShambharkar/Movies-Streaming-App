@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <>
       <div className="flex flex-col  justify-center items-center gap-4 backdrop-blur-sm p-4 border w-full h-full">
-        <h1 className="stroke-1  p-4 rounded-2xl font-semibold text-[#2b63ff] max-sm:text-[30px] max-md:text-3xl lg:text-7xl text-center">
+        <h1 className="stroke-1  p-4 rounded-2xl font-semibold text-[#f7ff66] max-sm:text-[30px] max-md:text-3xl lg:text-7xl text-center">
           Your Streaming Guide For <br /> Movies, TV Shows & <br /> Sports.
         </h1>
         <p className="text-[#bdbdbd] text-center">
@@ -21,7 +21,7 @@ const Home = () => {
 
         <button
           onClick={() => to()}
-          className="bg-[#e9e9e9] hover:bg-[#4576ff] shadow-[#ffe8e8] shadow-2xl backdrop-blur-xl p-2 border border-white rounded-lg text-[#4576ff] hover:text-white transition-colors duration-200 ease-in-out cursor-pointer"
+          className="bg-[#5095fc]  hover:bg-[white] hover:text-[#4576ff] shadow-[#ffe8e8] shadow-2xl backdrop-blur-xl p-2 border border-white rounded-lg text-[white]  transition-colors duration-200 ease-in-out cursor-pointer"
         >
           Discover Movies & TV Shows
         </button>
