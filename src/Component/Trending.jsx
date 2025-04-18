@@ -1,6 +1,7 @@
-import { RiGlobalLine, RiShakeHandsFill, RiTvLine } from "@remixicon/react";
+import { RiGlobalLine, RiPlayCircleFill, RiShakeHandsFill, RiTvLine } from "@remixicon/react";
 import axios from "../Component/Axios";
 import React, { useEffect, useState } from "react";
+
 
 const Trending = () => {
   // const trendingshowBanners = [
@@ -62,13 +63,21 @@ const Trending = () => {
     <div className="w-full  border backdrop-blur-sm py-2 flex flex-col border-white justify-center items-center gap-8 ">
       
       {/* Trending banner */}
-      {showBanner ? (<div className="banner  text-white border-white w-250 rounded-2xl h-120 mt-20 bg-cover bg-center max-lg:w-150 max-lg:h-90 max-md:w-70 max-md:h-45"
+      {showBanner ? (<div className="banner text-white border-white w-250 rounded-2xl h-120 mt-20 bg-cover bg-center max-lg:w-150 max-lg:h-90 max-md:w-70 max-md:h-45"
         style={{
           backgroundImage: `linear-gradient(to top, #000000 , rgba(0,0,0,0.10), rgba(0, 0, 0, 0)), url(https://image.tmdb.org/t/p/original/${showBanner.backdrop_path || showBanner.profile_path})`,
           backgroundPosition: "center",
           backgroundSize: "cover", 
         }}>
-      <div className="w-full h-full flex gap-2 flex-col justify-end  border-white p-4 max-md:text-[10px]">
+
+      <div className="w-full h-full flex gap-2 flex-col justify-end border border-white p-4 max-md:text-[10px]">
+      
+      {/* play button */}
+      <span className="bottom border-white border w-full h-full flex items-center justify-center text-[#f7ff66] max-md:hidden ">
+          <RiPlayCircleFill className="size-25 text-[#6696ff65] hover:text-[#6696ff] transition-colors duration-300 ease cursor-pointer " />
+      </span>
+
+      {/* banner content */}
         <h1 className="text-4xl font-bold text-[#f7ff66] max-md:text-[10px]" >{showBanner.name || showBanner.title || showBanner.original_name || showBanner.original_title }</h1>
         <h1>{showBanner.overview.slice(0,200)}...</h1>
         <div className="flex gap-2">
@@ -78,7 +87,7 @@ const Trending = () => {
         </div>
         <button className="px-2 w-fit rounded-2xl text-[white] bg-[#7499ffca] backdrop-blur-2xl">Watch Trailer</button>
       </div>
-      </div>) : ''}
+      </div>) : <div className="text-white flex justify-center bg-black border-white w-250 rounded-2xl h-120 mt-20 bg-cover bg-center max-lg:w-150 max-lg:h-90 max-md:w-70 max-md:h-45 overflow-hidden"><img className="" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmFnaXg0eWhnaWxtbXJ3Z3BuZmc1aXlmenlsbGp2ZHA1MjgyaWF0ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ycfHiJV6WZnQDFjSWH/giphy.gif"/></div>}
 
       <div className=" border border-white">
       <h2 className="text-[#f7ff66] lg:text-5xl text-3xl font-bold text-center">
@@ -108,15 +117,21 @@ const Trending = () => {
       <div className="grid border border-white md:grid-cols-4 sm:grid-cols-2 gap-6 w-full max-w-7xl">
         {showTrending.map((item, index) => (
           <div key={index} className="bg-[#1e1e1e] border justify-between border-[#ffffff] p-4 flex flex-col gap-2 rounded-2xl shadow-lg hover:scale-101 transition-transform duration-200 ">
+           {/* top of the card */}
            <div className="top">
            <img className="rounded-md" src={`https://image.tmdb.org/t/p/original/${item.backdrop_path || item.profile_path}`} alt="" />
             <h3 className="text-xl text-white font-semibold">{item.title || item.name}</h3>
             <p className="text-sm text-[#9ca3af]">{item.overview.slice(0,100)}...</p>
             <h5 className="text-[#f7ff66]" >Type: {item.media_type}</h5>
            </div>
-            <span className="bottom text-xs text-[#f7ff66] border cursor-pointer  bg-[#2c2c2c] w-fit py-1 px-2 rounded-2xl inline-block">
-              {item.status} Watch Now
+           {/* bottom card content*/}
+           <div className="bottom flex border h-fit items-center border-white justify-between ">
+            <span className="text-[#668fff] " >Popularity: {item.popularity>100?  "High" : 'Very Low'}</span>
+            <span className="bottom text-[#f7ff66]  cursor-pointer">
+              {/* {item.status} Watch Now */}
+              <RiPlayCircleFill className="size-15" />
             </span>
+           </div>
           </div>
         ))}
       </div>
