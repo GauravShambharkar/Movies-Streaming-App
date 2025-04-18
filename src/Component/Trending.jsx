@@ -3,31 +3,32 @@ import axios from "../Component/Axios";
 import React, { useEffect, useState } from "react";
 
 const Trending = () => {
-  const trendingshowBanners = [
-    {
-      title: "Oppenheimer",
-      category: "Movie",
-      status: "Now Streaming",
-    },
-    {
-      title: "The Last of Us",
-      category: "TV Show",
-      status: "Season 1 Available",
-    },
-    {
-      title: "F1: Drive to Survive",
-      category: "Documentary",
-      status: "New Season Out",
-    },
-    {
-      title: "Avatar: The Way of Water",
-      category: "Movie",
-      status: "Available in 4K",
-    },
-  ];
+  // const trendingshowBanners = [
+  //   {
+  //     title: "Oppenheimer",
+  //     category: "Movie",
+  //     status: "Now Streaming",
+  //   },
+  //   {
+  //     title: "The Last of Us",
+  //     category: "TV Show",
+  //     status: "Season 1 Available",
+  //   },
+  //   {
+  //     title: "F1: Drive to Survive",
+  //     category: "Documentary",
+  //     status: "New Season Out",
+  //   },
+  //   {
+  //     title: "Avatar: The Way of Water",
+  //     category: "Movie",
+  //     status: "Available in 4K",
+  //   },
+  // ];
 
   const [showBanner, setShowBanner] = useState(null);
   const [showTrending, setShowTrending] = useState([]);
+  const [category, setCategory] = useState('all')
 
   async function renderBanner() {
     try{
@@ -43,7 +44,7 @@ const Trending = () => {
 
   async function renderTrending() {
     try{
-      const showTrend = await axios.get(`/trending/all/day`);
+      const showTrend = await axios.get(`/trending/${category}/day`);
       setShowTrending(showTrend.data.results)
       console.log(showTrend.data.results);
     }
@@ -55,10 +56,12 @@ const Trending = () => {
   useEffect(() => {
     renderBanner();  
     renderTrending()
-  }, []);
+  }, [category]);
 
   return (
-    <div className="w-full  border backdrop-blur-sm py-2 flex flex-col border-white justify-center items-center m- gap-8 ">
+    <div className="w-full  border backdrop-blur-sm py-2 flex flex-col border-white justify-center items-center gap-8 ">
+      
+      {/* Trending banner */}
       {showBanner ? (<div className="banner  text-white border-white w-250 rounded-2xl h-120 mt-20 bg-cover bg-center max-lg:w-150 max-lg:h-90 max-md:w-70 max-md:h-45"
         style={{
           backgroundImage: `linear-gradient(to top, #000000 , rgba(0,0,0,0.10), rgba(0, 0, 0, 0)), url(https://image.tmdb.org/t/p/original/${showBanner.backdrop_path || showBanner.profile_path})`,
@@ -77,23 +80,39 @@ const Trending = () => {
       </div>
       </div>) : ''}
 
+      <div className=" border border-white">
       <h2 className="text-[#f7ff66] lg:text-5xl text-3xl font-bold text-center">
         Trending Now
       </h2>
-      <p className="text-[#bdbdbd] text-center max-w-2xl">
+      <p className="text-[#bdbdbd] text-center mt-2 max-w-2xl">
         Discover what’s hot and trending across your favorite streaming
         platforms. Hand-picked and updated regularly.
       </p>
+      </div>
 
-
+      {/* dropDown category */}
+      <div onChange={(e)=>setCategory(e.target.value)}  className="container w-full h-fit border flex justify-end border-white">
+      <select  id="categorySelect"
+        className="bg-[#1c1c1c] text-[#70a0ff] text-base rounded-md focus:ring-[#7499ff] focus:border-[#7499ff] block p-3 w-full sm:w-72 transition duration-200 ease-in-out shadow-md hover:border-[#7499ff] hover:bg-[#232323] cursor-pointer">
+        <option value="" selected className="text-[#8a8a8a]">
+          Filter
+        </option>
+        <option value="all" selected >all</option>
+        <option value="tv">tv</option>
+        <option value="movie">movies</option>
+      </select>
+      </div>
+      
+      
       {/* cards */}
-      <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-6 w-full max-w-6xl">
+      <div className="grid border border-white md:grid-cols-4 sm:grid-cols-2 gap-6 w-full max-w-7xl">
         {showTrending.map((item, index) => (
           <div key={index} className="bg-[#1e1e1e] border justify-between border-[#ffffff] p-4 flex flex-col gap-2 rounded-2xl shadow-lg hover:scale-101 transition-transform duration-200 ">
            <div className="top">
            <img className="rounded-md" src={`https://image.tmdb.org/t/p/original/${item.backdrop_path || item.profile_path}`} alt="" />
             <h3 className="text-xl text-white font-semibold">{item.title || item.name}</h3>
             <p className="text-sm text-[#9ca3af]">{item.overview.slice(0,100)}...</p>
+            <h5 className="text-[#f7ff66]" >Type: {item.media_type}</h5>
            </div>
             <span className="bottom text-xs text-[#f7ff66] border cursor-pointer  bg-[#2c2c2c] w-fit py-1 px-2 rounded-2xl inline-block">
               {item.status} Watch Now
