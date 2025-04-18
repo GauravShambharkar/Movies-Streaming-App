@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import axios from "./Axios";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -6,6 +7,20 @@ const Home = () => {
   function to() {
     nagivate("/trending");
   }
+
+  const [showData, setShowData] = useState([])
+
+
+  async function getData(){
+    const {data} = await axios.get('/tv/airing_today')
+    setShowData(data.results)
+    console.log("Home Data",data);
+  }
+
+  useEffect(()=>{
+      getData()
+      console.log("from the state",showData);
+  },[])
 
 
   return (
@@ -59,17 +74,10 @@ const Home = () => {
         </Link>
 
         <div className="gap-6 grid sm:grid-cols-2 md:grid-cols-4 mt-6">
-          {[
-            "Oppenheimer",
-            "The Last of Us",
-            "F1 Drive to Survive",
-            "Avatar 2",
-          ].map((item, index) => (
-            <div
-              key={index}
-              className="bg-[#1a1a1a] shadow p-4 rounded-xl hover:scale-105 transition-transform"
-            >
-              <h4 className="font-semibold text-[#ffffff] text-lg">{item}</h4>
+          {showData.map((item, index) => (
+            <div key={index} className="bg-[#1a1a1a] shadow p-4 rounded-xl hover:scale-105 transition-transform">
+              <img src={`https://image.tmdb.org/t/p/original/${item.backdrop_path} || ${item.poster_path}`} alt="" />
+              <h4 className="font-semibold text-[#ffffff] text-lg">{item.original_name || item.name || item.title || item.original_title}</h4>
               <p className="text-[#bbbbbb] text-sm">Now Streaming</p>
             </div>
           ))}
