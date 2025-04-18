@@ -27,7 +27,7 @@ const Trending = () => {
   ];
 
   const [showBanner, setShowBanner] = useState(null);
-  const [showTrending, setShowTrending] = useState(null);
+  const [showTrending, setShowTrending] = useState([]);
 
   async function renderBanner() {
     try{
