@@ -57,9 +57,9 @@ const Popular = () => {
         <h1 className="text-4xl font-bold text-[#f7ff66] max-md:text-[14px]" >{showPopularBanner.name || showPopularBanner.title || showPopularBanner.original_name || showPopularBanner.original_title }</h1>
         <h1>{showPopularBanner.overview}...</h1>
         <div className="flex gap-2">
-            <h1 className="flex gap-1 w-fit border border-white">{<RiTvLine className="w-5 text-[#f7ff66]"/>}Genre: {showPopularBanner.media_type}</h1>
-            <h1 className=" w-fit border gap-1 flex border-white">{<RiGlobalLine className="w-5 text-[#f7ff66]"/>}Language: {showPopularBanner.original_language}</h1>
-            <span className="border gap-1 flex border-white" >{<RiShakeHandsFill className="w-5 text-[#f7ff66]"/>}Rating: {showPopularBanner.vote_average || '?'}/10</span>
+            <h1 className="flex gap-1 items-center w-fit border border-white">{<RiTvLine className="w-5 text-[#f7ff66]"/>}Genre: {showPopularBanner.media_type}</h1>
+            <h1 className=" w-fit border items-center gap-1 flex border-white">{<RiGlobalLine className="w-5 text-[#f7ff66]"/>}Language: {showPopularBanner.original_language}</h1>
+            <span className="border gap-1 flex items-center border-white" >{<RiShakeHandsFill className="w-5 text-[#f7ff66]"/>}Rating: {showPopularBanner.vote_average || '?'}/10</span>
         </div>
         <button className="px-2 w-fit rounded-2xl text-[white] bg-[#7499ffca] backdrop-blur-2xl">Watch Trailer</button>
       </div>

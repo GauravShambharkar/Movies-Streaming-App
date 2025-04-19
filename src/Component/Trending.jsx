@@ -82,9 +82,9 @@ const Trending = () => {
         <h1 className="text-4xl font-bold text-[#f7ff66] max-md:text-[14px]" >{showBanner.name || showBanner.title || showBanner.original_name || showBanner.original_title }</h1>
         <h1>{showBanner.overview.slice(0,200)}...</h1>
         <div className="flex gap-2">
-            <h1 className="flex gap-1 w-fit border border-white">{<RiTvLine className="w-5 text-[#f7ff66]"/>}Genre: {showBanner.media_type}</h1>
-            <h1 className=" w-fit border gap-1 flex border-white">{<RiGlobalLine className="w-5 text-[#f7ff66]"/>}Language: {showBanner.original_language}</h1>
-            <span className="border gap-1 flex border-white" >{<RiShakeHandsFill className="w-5 text-[#f7ff66]"/>}Rating: {showBanner.vote_average || '?'}/10</span>
+            <h1 className="flex gap-1 w-fit items-center border border-white">{<RiTvLine className="w-5 text-[#f7ff66]"/>}Genre: {showBanner.media_type}</h1>
+            <h1 className=" w-fit border gap-1 flex items-center border-white">{<RiGlobalLine className="w-5 text-[#f7ff66]"/>}Language: {showBanner.original_language}</h1>
+            <span className="border gap-1 flex items-center border-white" >{<RiShakeHandsFill className="w-5 text-[#f7ff66]"/>}Rating: {showBanner.vote_average || '?'}/10</span>
         </div>
         <button className="px-2 py-1 w-fit rounded-2xl text-[white] bg-[#7499ffca] backdrop-blur-2xl">Watch Trailer</button>
       </div>
