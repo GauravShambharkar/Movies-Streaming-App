@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Routing from "./Routing";
 import { RiCloseLargeLine, RiMenuSearchFill, RiMovie2Line, RiSearch2Line } from "@remixicon/react";
 import axios from "../Component/Axios";
@@ -39,6 +39,11 @@ useEffect(()=>{
 
 },[query])
 
+const navigate = useNavigate()
+  const toHome = ()=>{
+      navigate('/')
+  }
+
   return (
     <>
     {/* navBar */}
@@ -47,7 +52,7 @@ useEffect(()=>{
     {/* navBar left side */}
       <div className="text-[#4d7cff]  items-center text-2xl p-2 flex">
       <RiMovie2Line/> 
-      <h1 className="font-black text-[#5381ff]">StreamUp</h1>
+      <h1 onClick={()=>toHome()} className="font-black text-[#5381ff]  ">StreamUp</h1>
       </div>
 
 

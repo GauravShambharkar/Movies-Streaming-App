@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 const NavMenu = ({setShowNavMenu}) => {
   return (
-    <div className='w-full fixed top-0 right-0 z-1 mt-16 bg-black border flex justify-end p-4 border-white'>
+    <div className='w-full fixed top-0 right-0 z-1 mt-16 bg-black border flex justify-end p-4 border-white '>
         <div className='border border-white w-fit' >
         <NavLink onClick={()=>setShowNavMenu('')} to='/' className={({isActive})=>{
               return isActive? "text-[#f7ff66]  items-center flex gap-2 text-[16px] " : "text-[#ffffff] hover:text-[#fbffb7] items-center text-[16px] flex gap-2"
