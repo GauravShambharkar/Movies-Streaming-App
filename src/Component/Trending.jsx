@@ -86,7 +86,7 @@ const Trending = () => {
             <h1 className=" w-fit border gap-1 flex border-white">{<RiGlobalLine className="w-5 text-[#f7ff66]"/>}Language: {showBanner.original_language}</h1>
             <span className="border gap-1 flex border-white" >{<RiShakeHandsFill className="w-5 text-[#f7ff66]"/>}Rating: {showBanner.vote_average || '?'}/10</span>
         </div>
-        <button className="px-2 w-fit rounded-2xl text-[white] bg-[#7499ffca] backdrop-blur-2xl">Watch Trailer</button>
+        <button className="px-2 py-1 w-fit rounded-2xl text-[white] bg-[#7499ffca] backdrop-blur-2xl">Watch Trailer</button>
       </div>
       </div>) : <div className="text-white flex justify-center bg-black border-white w-250 rounded-2xl h-120 mt-20 bg-cover bg-center max-lg:w-150 max-lg:h-90 max-md:w-90 max-md:h-55 overflow-hidden"><img className="" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmFnaXg0eWhnaWxtbXJ3Z3BuZmc1aXlmenlsbGp2ZHA1MjgyaWF0ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ycfHiJV6WZnQDFjSWH/giphy.gif"/></div>}
 
@@ -121,7 +121,7 @@ const Trending = () => {
           dataLength={showTrending.length}
           next={showTrending}
           loader={<h4>Please Wait...</h4>}>
-      <div className="grid border border-white md:grid-cols-4 sm:grid-cols-2 gap-6 w-full max-w-7xl">
+      <div className="grid border p-4 border-white md:grid-cols-4 sm:grid-cols-2 max-sm:grid-cols-2 gap-4 w-full max-w-7xl">
         {showTrending.map((item, index) => (
          
           <div key={index} className="bg-[#1e1e1e] border justify-between border-[#ffffff] p-4 flex flex-col gap-2 rounded-2xl shadow-lg hover:scale-101 transition-transform duration-200 ">
@@ -129,15 +129,15 @@ const Trending = () => {
            <div className="top">
            <img className="rounded-md" src={`https://image.tmdb.org/t/p/original/${item.backdrop_path || item.profile_path}`} alt="" />
             <h3 className="text-xl text-white font-semibold">{item.title || item.name}</h3>
-            <p className="text-sm text-[#9ca3af]">{item.overview.slice(0,100)}...</p>
-            <h5 className="text-[#f7ff66]" >Type: {item.media_type}</h5>
+            <p className="text-sm text-[#9ca3af] max-sm:hidden ">{item.overview.slice(0,100)}...</p>
+            <h5 className="text-[#f7ff66] text-[12px]" >Type: {item.media_type}</h5>
            </div>
            {/* bottom card content*/}
-           <div className="bottom flex border h-fit items-center border-white justify-between ">
-            <span className="text-[#668fff] " >Popularity: {item.popularity>100?  "High" : 'Very Low'}</span>
-            <span className="bottom text-[#f7ff66]  cursor-pointer">
+           <div className="bottom flex border  h-fit items-center border-white justify-between ">
+            <span className="text-[#668fff] text-[12px] " >Popularity: {item.popularity>100?  "High" : 'Very Low'}</span>
+            <span className="bottom text-[#f7ff66]   cursor-pointer">
               {/* {item.status} Watch Now */}
-              <RiPlayCircleFill className="size-15" />
+              <RiPlayCircleFill className="size-15 max-sm:size-8" />
             </span>
            </div>
           </div>
