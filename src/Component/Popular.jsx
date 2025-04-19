@@ -40,7 +40,7 @@ const Popular = () => {
     <div className="w-full  border backdrop-blur-sm py-2 flex flex-col border-white justify-center items-center gap-8 ">
       
       {/* Trending banner */}
-      {showPopularBanner ? (<div className="banner  text-white border-white w-250 rounded-2xl h-120 mt-20 bg-cover bg-center max-lg:w-150 max-lg:h-90 max-md:w-80 max-md:h-55"
+      {showPopularBanner ? (<div className="banner  text-white border-white w-250 rounded-2xl h-120 mt-20 bg-cover bg-center max-lg:w-150 max-lg:h-90 max-md:w-90 max-md:h-55"
         style={{
           backgroundImage: `linear-gradient(to top, #000000 , rgba(0,0,0,0.10), rgba(0, 0, 0, 0)), url(https://image.tmdb.org/t/p/original/${showPopularBanner.backdrop_path || showPopularBanner.profile_path})`,
           backgroundPosition: "center",
