@@ -6,7 +6,7 @@ const Popular = () => {
   
   const [showPopularBanner, setShowPopularBanner] = useState(null);
   const [showPopular, setShowPopular] = useState([]);
-  const [category, setCategory] = useState('all')
+  const [category, setCategory] = useState('popular')
 
   async function renderPopularBanner() {
     try{
@@ -22,7 +22,7 @@ const Popular = () => {
 
   async function renderPopular() {
     try{
-      const showTrend = await axios.get(`/movie/popular`);
+      const showTrend = await axios.get(`/movie/${category}`);
       setShowPopular(showTrend.data.results)
       console.log(showTrend.data.results);
     }
@@ -76,17 +76,18 @@ const Popular = () => {
       </div>
 
       {/* dropDown category */}
-      {/* <div onChange={(e)=>setCategory(e.target.value)}  className="container w-full h-fit border flex justify-end border-white">
+      <div onChange={(e)=>setCategory(e.target.value)}  className="container w-full h-fit border flex justify-end border-white">
       <select  id="categorySelect"
         className="bg-[#1c1c1c] text-[#70a0ff] text-base rounded-md focus:ring-[#7499ff] focus:border-[#7499ff] block p-3 w-full sm:w-72 transition duration-200 ease-in-out shadow-md hover:border-[#7499ff] hover:bg-[#232323] cursor-pointer">
         <option value="" selected className="text-[#8a8a8a]">
           Filter
         </option>
-        <option value="all" selected >all</option>
-        <option value="tv">tv</option>
-        <option value="movie">movies</option>
+        <option value="popular" selected >popular</option>
+        <option value="now_playing">Now playing</option>
+        <option value="top_rated">Top Rated</option>
+        <option value="upcoming">upcoming</option>
       </select>
-      </div> */}
+      </div>
       
       
       {/* cards */}
