@@ -12,9 +12,9 @@ const Home = () => {
 
 
   async function getData(){
-    const {data} = await axios.get('/tv/airing_today')
+    const {data} = await axios.get('/discover/movie')
     setShowData(data.results)
-    console.log("Home Data",data);
+    console.log("Home Data",data.results);
   }
 
   useEffect(()=>{
@@ -76,7 +76,7 @@ const Home = () => {
         <div className="gap-6 grid sm:grid-cols-2 md:grid-cols-4 mt-6">
           {showData.map((item, index) => (
             <div key={index} className="bg-[#1a1a1a] shadow p-4 rounded-xl hover:scale-105 transition-transform">
-              <img src={`https://image.tmdb.org/t/p/original/${item.backdrop_path} || ${item.poster_path}`} alt="" />
+              <img src={`https://image.tmdb.org/t/p/original/${item.backdrop_path || item.poster_path}`} alt="" />
               <h4 className="font-semibold text-[#ffffff] text-lg">{item.original_name || item.name || item.title || item.original_title}</h4>
               <p className="text-[#bbbbbb] text-sm">Now Streaming</p>
             </div>
