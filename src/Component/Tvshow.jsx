@@ -1,28 +1,29 @@
 import { RiGlobalLine, RiPlayCircleFill, RiShakeHandsFill, RiTvLine } from "@remixicon/react";
 import axios from "./Axios";
 import React, { useEffect, useState } from "react";
+import CardBuffering from "./CardBuffering";
 
 const TvShows = () => {
-  const [showPopularBanner, setShowPopularBanner] = useState(null);
-  const [showPopular, setShowPopular] = useState([]);
+  const [showTvBanner, setShowTvBanner] = useState(null);
+  const [TvShows, setTvShows] = useState([]);
   const [category, setCategory] = useState('popular')
 
-  async function renderPopularBanner() {
+  async function renderTvShowsBanner() {
     try{
       const showdata = await axios.get(`/tv/airing_today`);
       console.log(showdata.data.results);
-      const randomePopularBanner = showdata.data.results[(Math.random() * showdata.data.results.length).toFixed()];
-      setShowPopularBanner(randomePopularBanner)
+      const randomeTvShowsBanner = showdata.data.results[(Math.random() * showdata.data.results.length).toFixed()];
+      setShowTvBanner(randomeTvShowsBanner)
     }
     catch(e){
       console.log("Error", e);
     }}
-  console.log("Popular",showPopularBanner);
+  console.log("Popular",showTvBanner);
 
-  async function renderPopular() {
+  async function renderTvShows() {
     try{
       const showTrend = await axios.get(`/tv/${category}`);
-      setShowPopular(showTrend.data.results)
+      setTvShows(showTrend.data.results)
       console.log(showTrend.data.results);
     }
     catch(e){
@@ -31,17 +32,17 @@ const TvShows = () => {
 
 
   useEffect(() => {
-    renderPopularBanner();  
-    renderPopular()
+    renderTvShowsBanner();  
+    renderTvShows()
   }, [category]);
 
   return (
     <div className="w-full  border backdrop-blur-sm py-2 flex flex-col border-white justify-center items-center gap-8 ">
       
       {/* Trending banner */}
-      {showPopularBanner ? (<div className="banner  text-white border-white w-250 rounded-2xl h-120 mt-20 bg-cover bg-center max-lg:w-150 max-lg:h-90 max-md:w-90 max-md:h-55"
+      {showTvBanner ? (<div className="banner  text-white border-white w-250 rounded-2xl h-120 mt-20 bg-cover bg-center max-lg:w-150 max-lg:h-90 max-md:w-90 max-md:h-55"
         style={{
-          backgroundImage: `linear-gradient(to top, #000000 , rgba(0,0,0,0.10), rgba(0, 0, 0, 0)), url(https://image.tmdb.org/t/p/original/${showPopularBanner.backdrop_path || showPopularBanner.profile_path})`,
+          backgroundImage: `linear-gradient(to top, #000000 , rgba(0,0,0,0.10), rgba(0, 0, 0, 0)), url(https://image.tmdb.org/t/p/original/${showTvBanner.backdrop_path || showTvBanner.profile_path})`,
           backgroundPosition: "center",
           backgroundSize: "cover", 
         }}>
@@ -53,12 +54,12 @@ const TvShows = () => {
               <RiPlayCircleFill className="size-25 text-[#6696ff65] hover:text-[#6696ff] transition-colors duration-300 ease cursor-pointer " />
         </span>
 
-        <h1 className="text-4xl font-bold text-[#f7ff66] max-md:text-[14px]" >{showPopularBanner.name || showPopularBanner.title || showPopularBanner.original_name || showPopularBanner.original_title }</h1>
-        <h1>{showPopularBanner.overview.slice(0,150)}...</h1>
+        <h1 className="text-4xl font-bold text-[#f7ff66] max-md:text-[14px]" >{showTvBanner.name || showTvBanner.title || showTvBanner.original_name || showTvBanner.original_title }</h1>
+        <h1>{showTvBanner.overview.slice(0,150)}...</h1>
         <div className="flex gap-2">
-            <h1 className="flex gap-1 items-center w-fit border border-white">{<RiTvLine className="w-5 text-[#f7ff66]"/>}Genre: {showPopularBanner.media_type}</h1>
-            <h1 className=" w-fit border items-center gap-1 flex border-white">{<RiGlobalLine className="w-5 text-[#f7ff66]"/>}Language: {showPopularBanner.original_language}</h1>
-            <span className="border gap-1 flex items-center border-white" >{<RiShakeHandsFill className="w-5 text-[#f7ff66]"/>}Rating: {showPopularBanner.vote_average || '?'}/10</span>
+            <h1 className="flex gap-1 items-center w-fit border border-white">{<RiTvLine className="w-5 text-[#f7ff66]"/>}Genre: {showTvBanner.media_type}</h1>
+            <h1 className=" w-fit border items-center gap-1 flex border-white">{<RiGlobalLine className="w-5 text-[#f7ff66]"/>}Language: {showTvBanner.original_language}</h1>
+            <span className="border gap-1 flex items-center border-white" >{<RiShakeHandsFill className="w-5 text-[#f7ff66]"/>}Rating: {showTvBanner.vote_average || '?'}/10</span>
         </div>
         <button className="px-2 py-1 w-fit rounded-2xl text-[white] bg-[#7499ffca] backdrop-blur-2xl">Watch Trailer</button>
       </div>
@@ -91,7 +92,7 @@ const TvShows = () => {
       
       {/* cards */}
       <div className="grid border p-4 border-white md:grid-cols-4 sm:grid-cols-2 gap-4 w-full max-w-7xl">
-        {showPopular.map((item, index) => (
+        {TvShows.length >0?  (TvShows.map((item, index) => (
           <div key={index} className="bg-[#1e1e1e]  border justify-between border-[#ffffff] p-4 flex flex-col gap-2 rounded-2xl shadow-lg hover:scale-101 transition-transform duration-200 ">
            <div className="top">
            <img className="rounded-md" src={`https://image.tmdb.org/t/p/original/${item.backdrop_path || item.profile_path}`} alt="" />
@@ -107,8 +108,7 @@ const TvShows = () => {
               <RiPlayCircleFill className="size-15" />
             </span>
            </div>
-          </div>
-        ))}
+          </div>))) : <CardBuffering/> }
       </div>
     </div>
   );
