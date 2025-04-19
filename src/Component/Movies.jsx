@@ -47,14 +47,15 @@ const Movies = () => {
           backgroundPosition: "center",
           backgroundSize: "cover", 
         }}>
-      <div className="w-full h-full flex gap-2 flex-col justify-end  border-white p-4 max-md:text-[10px] ">
+      <div className="w-full  h-full flex gap-2 flex-col justify-end  border-white p-4 max-md:text-[10px] ">
             
             {/* play button */}
-            <span className="bottom border-white border w-full h-full flex items-center justify-center text-[#f7ff66] max-md:hidden ">
-                  <RiPlayCircleFill className="size-25 text-[#6696ff65] hover:text-[#6696ff] transition-colors duration-300 ease cursor-pointer " />
-            </span>
-
+        <span className="bottom border-white border w-full h-full flex items-center justify-center text-[#f7ff66] max-md:hidden ">
+              <RiPlayCircleFill className="size-25 text-[#6696ff65] hover:text-[#6696ff] transition-colors duration-300 ease cursor-pointer " />
+        </span>
+        {/* movie name */}
         <h1 className="text-4xl font-bold text-[#f7ff66] max-md:text-[14px]" >{showMovieBanner.name || showMovieBanner.title || showMovieBanner.original_name || showMovieBanner.original_title }</h1>
+        {/* movie discription */}
         <h1>{showMovieBanner.overview.slice(0,150)}...</h1>
         <div className="flex gap-2">
             <h1 className="flex items-center gap-1 w-fit border border-white">{<RiTvLine className="w-5 text-[#f7ff66]"/>}Genre: {showMovieBanner.media_type}</h1>

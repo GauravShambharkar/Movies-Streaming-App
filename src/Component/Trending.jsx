@@ -137,7 +137,7 @@ const Trending = () => {
             <span className="text-[#668fff] text-[12px] " >Popularity: {item.popularity>100?  "High" : 'Very Low'}</span>
             <span className="bottom text-[#f7ff66]   cursor-pointer">
               {/* {item.status} Watch Now */}
-              <RiPlayCircleFill className="size-15 max-sm:size-8" />
+              <RiPlayCircleFill className="size-15" />
             </span>
            </div>
           </div>
