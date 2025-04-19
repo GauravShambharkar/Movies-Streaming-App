@@ -54,7 +54,7 @@ const Movies = () => {
                   <RiPlayCircleFill className="size-25 text-[#6696ff65] hover:text-[#6696ff] transition-colors duration-300 ease cursor-pointer " />
             </span>
 
-        <h1 className="text-4xl font-bold text-[#f7ff66] max-md:text-[10px]" >{showMovieBanner.name || showMovieBanner.title || showMovieBanner.original_name || showMovieBanner.original_title }</h1>
+        <h1 className="text-4xl font-bold text-[#f7ff66] max-md:text-[14px]" >{showMovieBanner.name || showMovieBanner.title || showMovieBanner.original_name || showMovieBanner.original_title }</h1>
         <h1>{showMovieBanner.overview}...</h1>
         <div className="flex gap-2">
             <h1 className="flex gap-1 w-fit border border-white">{<RiTvLine className="w-5 text-[#f7ff66]"/>}Genre: {showMovieBanner.media_type}</h1>
@@ -63,7 +63,7 @@ const Movies = () => {
         </div>
         <button className="px-2 w-fit rounded-2xl text-[white] bg-[#7499ffca] backdrop-blur-2xl">Watch Trailer</button>
       </div>
-      </div>) : <div className="text-white flex justify-center bg-black border-white w-250 rounded-2xl h-120 mt-20 bg-cover bg-center max-lg:w-150 max-lg:h-90 max-md:w-70 max-md:h-45 overflow-hidden"><img className="" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmFnaXg0eWhnaWxtbXJ3Z3BuZmc1aXlmenlsbGp2ZHA1MjgyaWF0ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ycfHiJV6WZnQDFjSWH/giphy.gif"/></div>}
+      </div>) : <div className="text-white flex justify-center bg-black border-white w-250 rounded-2xl h-120 mt-20 bg-cover bg-center max-lg:w-150 max-lg:h-90 max-md:w-90 max-md:h-55 overflow-hidden"><img className="" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmFnaXg0eWhnaWxtbXJ3Z3BuZmc1aXlmenlsbGp2ZHA1MjgyaWF0ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ycfHiJV6WZnQDFjSWH/giphy.gif"/></div>}
 
       <div className=" border border-white">
       <h2 className="text-[#f7ff66] lg:text-5xl text-3xl font-bold text-center">
