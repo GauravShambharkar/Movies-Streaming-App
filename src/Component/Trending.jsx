@@ -1,6 +1,7 @@
 import { RiGlobalLine, RiPlayCircleFill, RiShakeHandsFill, RiTvLine } from "@remixicon/react";
 import axios from "../Component/Axios";
 import React, { useEffect, useState } from "react";
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 
 const Trending = () => {
@@ -103,10 +104,10 @@ const Trending = () => {
       <div onChange={(e)=>setCategory(e.target.value)}  className="container w-full h-fit border flex justify-end border-white">
       <select  id="categorySelect"
         className="bg-[#1c1c1c] text-[#70a0ff] text-base rounded-md focus:ring-[#7499ff] focus:border-[#7499ff] block p-3 w-full sm:w-72 transition duration-200 ease-in-out shadow-md hover:border-[#7499ff] hover:bg-[#232323] cursor-pointer">
-        <option value="" selected className="text-[#8a8a8a]">
+        <option defaultValue className="text-[#8a8a8a]">
           Filter
         </option>
-        <option value="all" selected >all</option>
+        <option value="all" defaultValue >all</option>
         <option value="tv">tv</option>
         <option value="movie">movies</option>
       </select>
@@ -114,8 +115,15 @@ const Trending = () => {
       
       
       {/* cards */}
+       <InfiniteScroll 
+          
+          hasMore={true}
+          dataLength={showTrending.length}
+          next={showTrending}
+          loader={<h4>Please Wait...</h4>}>
       <div className="grid border border-white md:grid-cols-4 sm:grid-cols-2 gap-6 w-full max-w-7xl">
         {showTrending.map((item, index) => (
+         
           <div key={index} className="bg-[#1e1e1e] border justify-between border-[#ffffff] p-4 flex flex-col gap-2 rounded-2xl shadow-lg hover:scale-101 transition-transform duration-200 ">
            {/* top of the card */}
            <div className="top">
@@ -135,6 +143,7 @@ const Trending = () => {
           </div>
         ))}
       </div>
+        </InfiniteScroll>
     </div>
   );
 };
