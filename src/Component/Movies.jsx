@@ -90,7 +90,7 @@ const Movies = () => {
       
       
       {/* cards */}
-      <div className="grid border border-white md:grid-cols-4 sm:grid-cols-2 gap-6 w-full max-w-7xl">
+      <div className="grid border p-4 border-white md:grid-cols-4 sm:grid-cols-2 gap-6 w-full max-w-7xl">
         {showMovies.map((item, index) => (
           <div key={index} className="bg-[#1e1e1e] border justify-between border-[#ffffff] p-4 flex flex-col gap-2 rounded-2xl shadow-lg hover:scale-101 transition-transform duration-200 ">
            <div className="top">

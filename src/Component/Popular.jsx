@@ -90,9 +90,9 @@ const Popular = () => {
       
       
       {/* cards */}
-      <div className="grid border border-white md:grid-cols-4 sm:grid-cols-2 gap-6 w-full max-w-7xl">
+      <div className="grid border p-4 border-white md:grid-cols-4 sm:grid-cols-2 gap-4 w-full max-w-7xl">
         {showPopular.map((item, index) => (
-          <div key={index} className="bg-[#1e1e1e] border justify-between border-[#ffffff] p-4 flex flex-col gap-2 rounded-2xl shadow-lg hover:scale-101 transition-transform duration-200 ">
+          <div key={index} className="bg-[#1e1e1e]  border justify-between border-[#ffffff] p-4 flex flex-col gap-2 rounded-2xl shadow-lg hover:scale-101 transition-transform duration-200 ">
            <div className="top">
            <img className="rounded-md" src={`https://image.tmdb.org/t/p/original/${item.backdrop_path || item.profile_path}`} alt="" />
             <h3 className="text-xl text-white font-semibold">{item.title || item.name || item.original_title || item.original_name}</h3>

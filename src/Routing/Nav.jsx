@@ -85,7 +85,8 @@ useEffect(()=>{
             <RiSearch2Line className="text-white" />
             <div className="NavMenu">
             <RiMenuSearchFill onClick={()=>renderNavMenu()} className="text-white hidden max-md:block size-5"/>
-              {showNavMenu === true? <NavMenu/> : null}
+  
+              {showNavMenu === true? <NavMenu setShowNavMenu={setShowNavMenu} /> : null}
             </div>
 
             </div>
