@@ -101,9 +101,9 @@ const Trending = () => {
       </div>
 
       {/* dropDown category */}
-      <div onChange={(e)=>setCategory(e.target.value)}  className="container w-full h-fit border flex justify-end border-white">
+      <div onChange={(e)=>setCategory(e.target.value)}  className="container w-full h-fit  border flex justify-end border-white">
       <select  id="categorySelect"
-        className="bg-[#1c1c1c] text-[#70a0ff] text-base rounded-md focus:ring-[#7499ff] focus:border-[#7499ff] block p-3 w-full sm:w-72 transition duration-200 ease-in-out shadow-md hover:border-[#7499ff] hover:bg-[#232323] cursor-pointer">
+        className="bg-[#1c1c1c] text-[#70a0ff] text-base rounded-md max-sm:w-fit py-1 focus:ring-[#7499ff] focus:border-[#7499ff] block p-3 w-full sm:w-72 transition duration-200 ease-in-out shadow-md hover:border-[#7499ff] hover:bg-[#232323] cursor-pointer">
         <option defaultValue className="text-[#8a8a8a]">
           Filter
         </option>
