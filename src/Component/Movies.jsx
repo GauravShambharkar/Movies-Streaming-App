@@ -1,6 +1,7 @@
 import { RiGlobalLine, RiPlayCircleFill, RiShakeHandsFill, RiTvLine } from "@remixicon/react";
 import axios from "../Component/Axios";
 import React, { useEffect, useState } from "react";
+import CardBuffering from "./CardBuffering";
 
 
 const Movies = () => {
@@ -92,7 +93,7 @@ const Movies = () => {
       
       {/* cards */}
       <div className="grid border p-4 border-white md:grid-cols-4 sm:grid-cols-2 gap-6 w-full max-w-7xl">
-        {showMovies.map((item, index) => (
+        {showMovies.length>0? (showMovies.map((item, index) => (
           <div key={index} className="bg-[#1e1e1e] border justify-between border-[#ffffff] p-4 flex flex-col gap-2 rounded-2xl shadow-lg hover:scale-101 transition-transform duration-200 ">
            <div className="top">
            <img className="rounded-md" src={`https://image.tmdb.org/t/p/original/${item.backdrop_path || item.profile_path}`} alt="" />
@@ -108,8 +109,8 @@ const Movies = () => {
               <RiPlayCircleFill className="size-15" />
             </span>
            </div>
-          </div>
-        ))}
+          </div>))) : <CardBuffering/>
+        }
       </div>
     </div>
   );

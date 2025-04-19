@@ -2,6 +2,7 @@ import { RiGlobalLine, RiPlayCircleFill, RiShakeHandsFill, RiTvLine } from "@rem
 import axios from "../Component/Axios";
 import React, { useEffect, useState } from "react";
 import InfiniteScroll from 'react-infinite-scroll-component';
+import CardBuffering from "./CardBuffering";
 
 
 const Trending = () => {
@@ -113,16 +114,15 @@ const Trending = () => {
       </select>
       </div>
       
-      
       {/* cards */}
-       <InfiniteScroll 
-          
+       {/* <InfiniteScroll  */}
+{/*           
           hasMore={true}
           dataLength={showTrending.length}
           next={showTrending}
-          loader={<h4>Please Wait...</h4>}>
+          loader={<h4>Please Wait...</h4>}> */}
       <div className="grid border p-4 border-white md:grid-cols-4 sm:grid-cols-2 gap-4 w-full max-w-7xl">
-        {showTrending.map((item, index) => (
+        {showTrending.length? (showTrending.map((item, index) => (
          
           <div key={index} className="bg-[#1e1e1e] border justify-between border-[#ffffff] p-4 flex flex-col gap-2 rounded-2xl shadow-lg hover:scale-101 transition-transform duration-200 ">
            {/* top of the card */}
@@ -141,9 +141,9 @@ const Trending = () => {
             </span>
            </div>
           </div>
-        ))}
+        ))) : <CardBuffering/>}
       </div>
-        </InfiniteScroll>
+        {/* </InfiniteScroll> */}
     </div>
   );
 };
