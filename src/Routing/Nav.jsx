@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Routing from "./Routing";
-import { RiCloseLargeLine, RiMovie2Line, RiSearch2Line } from "@remixicon/react";
+import { RiCloseLargeLine, RiMenuSearchFill, RiMovie2Line, RiSearch2Line } from "@remixicon/react";
 import axios from "../Component/Axios";
+import NavMenu from "./NavMenu";
 
 const Nav = () => {
 
   const [query,setQuery] = useState([])
   const [showQueryData, setShowQueryData] = useState([])
+  const [showNavMenu, setShowNavMenu] = useState(false)
 
   console.log("results", showQueryData);
   console.log(query);
@@ -16,6 +18,9 @@ function removeSearchQuery(){
   document.querySelector('input').value = ''
 }
 
+function renderNavMenu(){
+  setShowNavMenu(!showNavMenu)
+}
 
 
 async function getSearch(){
@@ -40,17 +45,15 @@ useEffect(()=>{
     <div className="navbar w-full justify-between fixed z-1 gap-4 items-center px-2 py-2 border-r border-b border-[#3f7cff]  bg-[#000000] backdrop-blur-lg flex pt-3">
 
     {/* navBar left side */}
-      <div className="text-[#4d7cff] items-center text-2xl p-2 flex">
+      <div className="text-[#4d7cff]  items-center text-2xl p-2 flex">
       <RiMovie2Line/> 
       <h1 className="font-black text-[#5381ff]">StreamUp</h1>
       </div>
 
 
       {/* navBar right side */}
-      <div className="rightSIde flex w-full border-white justify-end ">
-        <div className="flex flex-row items-center gap-3 px-2  border-white" >
-
-
+      <div className="rightSIde flex w-full  border-white justify-end ">
+        <div className="flex flex-row items-center gap-3 px-2  max-md:hidden border-white" >
             <NavLink to='/' className={({isActive})=>{
               return isActive? "text-[#f7ff66]  items-center flex gap-2 text-[13px] " : "text-[#ffffff] hover:text-[#fbffb7] items-center text-[13px] flex gap-2"
             }}>
@@ -76,10 +79,15 @@ useEffect(()=>{
             </div>
 
 
-            <div className="input flex gap-2 w-[50%] p-2 rounded-sm ">
+            <div className="input flex gap-2  border-white max-md:w-full w-[50%] items-center p-2 rounded-sm ">
             <input onChange={(e)=>setQuery(e.target.value)} type="text" placeholder="Search movies, trending shows and more" className="border-b border-[#ffffff] text-white outline-none w-full" />
             {query.length > 0? (<RiCloseLargeLine onClick={()=>{setQuery(''),removeSearchQuery()}} className="cursor-pointer text-white"/>) : ""}
             <RiSearch2Line className="text-white" />
+            <div className="NavMenu">
+            <RiMenuSearchFill onClick={()=>renderNavMenu()} className="text-white hidden max-md:block size-5"/>
+              {showNavMenu === true? <NavMenu/> : null}
+            </div>
+
             </div>
       </div>
 
