@@ -61,7 +61,7 @@ const Movies = () => {
             <h1 className=" w-fit border gap-1 flex items-center border-white">{<RiGlobalLine className="w-5 text-[#f7ff66]"/>}Language: {showMovieBanner.original_language}</h1>
             <span className="border gap-1 flex items-center border-white" >{<RiShakeHandsFill className="w-5 text-[#f7ff66]"/>}Rating: {showMovieBanner.vote_average || '?'}/10</span>
         </div>
-        <button className="px-2 w-fit rounded-2xl text-[white] bg-[#7499ffca] backdrop-blur-2xl">Watch Trailer</button>
+        <button className="px-2 py-1 w-fit rounded-2xl text-[white] bg-[#7499ffca] backdrop-blur-2xl">Watch Trailer</button>
       </div>
       </div>) : <div className="text-white flex justify-center bg-black border-white w-250 rounded-2xl h-120 mt-20 bg-cover bg-center max-lg:w-150 max-lg:h-90 max-md:w-90 max-md:h-55 overflow-hidden"><img className="" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmFnaXg0eWhnaWxtbXJ3Z3BuZmc1aXlmenlsbGp2ZHA1MjgyaWF0ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ycfHiJV6WZnQDFjSWH/giphy.gif"/></div>}
 
