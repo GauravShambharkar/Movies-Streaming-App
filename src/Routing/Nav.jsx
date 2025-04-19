@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Routing from "./Routing";
-import { RiCloseLargeLine, RiMenuSearchFill, RiMovie2Line, RiSearch2Line } from "@remixicon/react";
+import { RiCloseLargeLine, RiMenu2Fill, RiMovie2Line, RiSearch2Line } from "@remixicon/react";
 import axios from "../Component/Axios";
 import NavMenu from "./NavMenu";
 
@@ -89,7 +89,7 @@ const navigate = useNavigate()
             {query.length > 0? (<RiCloseLargeLine onClick={()=>{setQuery(''),removeSearchQuery()}} className="cursor-pointer text-white"/>) : ""}
             <RiSearch2Line className="text-white" />
             <div className="NavMenu">
-            <RiMenuSearchFill onClick={()=>renderNavMenu()} className="text-white hidden max-md:block size-5"/>
+            <RiMenu2Fill onClick={()=>renderNavMenu()} className="text-white hidden max-md:block size-5"/>
   
               {showNavMenu === true? <NavMenu setShowNavMenu={setShowNavMenu} /> : null}
             </div>
