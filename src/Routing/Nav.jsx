@@ -58,7 +58,7 @@ const navigate = useNavigate()
 
       {/* navBar right side */}
       <div className="rightSIde flex w-full  border-white justify-end ">
-        <div className="flex flex-row items-center gap-3 px-2  max-md:hidden border-white" >
+        <div className="flex flex-row items-center gap-3 px-2  max-sm:hidden border-white" >
             <NavLink to='/' className={({isActive})=>{
               return isActive? "text-[#f7ff66]  items-center flex gap-2 text-[13px] " : "text-[#ffffff] hover:text-[#fbffb7] items-center text-[13px] flex gap-2"
             }}>
@@ -90,7 +90,7 @@ const navigate = useNavigate()
             <RiSearch2Line className="text-white" />
             <div className="NavMenu">
               <span onClick={()=>renderNavMenu()}  >
-                {showNavMenu == true? <RiCloseLargeLine className="text-white hidden max-md:block size-5"/>  : (<RiMenu2Fill className="text-white hidden max-md:block size-5"/>) }
+                {showNavMenu == true? <RiCloseLargeLine className="text-white hidden max-sm:block size-5"/>  : (<RiMenu2Fill className="text-white hidden max-sm:block size-5"/>) }
               </span>
               {showNavMenu === true? <NavMenu setShowNavMenu={setShowNavMenu} /> : null}
             </div>
