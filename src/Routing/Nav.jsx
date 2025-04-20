@@ -89,8 +89,9 @@ const navigate = useNavigate()
             {query.length > 0? (<RiCloseLargeLine onClick={()=>{setQuery(''),removeSearchQuery()}} className="cursor-pointer text-white"/>) : ""}
             <RiSearch2Line className="text-white" />
             <div className="NavMenu">
-            <RiMenu2Fill onClick={()=>renderNavMenu()} className="text-white hidden max-md:block size-5"/>
-  
+              <span onClick={()=>renderNavMenu()}  >
+                {showNavMenu == true? <RiCloseLargeLine className="text-white hidden max-md:block size-5"/>  : (<RiMenu2Fill className="text-white hidden max-md:block size-5"/>) }
+              </span>
               {showNavMenu === true? <NavMenu setShowNavMenu={setShowNavMenu} /> : null}
             </div>
 
