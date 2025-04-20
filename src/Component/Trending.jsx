@@ -9,7 +9,7 @@ import React, { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import CardBuffering from "./CardBuffering";
 import { useNavigate } from "react-router-dom";
-import TrendingPreviewPage from "./Preview/TrendingPreviewPage";
+import slugify from "slugify"
 
 const Trending = () => {
   // const trendingshowBanners = [
@@ -199,7 +199,7 @@ const Trending = () => {
                 </span>
                 <span
                   onClick={() =>
-                    navigate("/trending/watch_trending", { state: item })
+                    navigate(`/trending/${slugify(item.name || item.title)}`, { state: item })
                   }
                   className="bottom text-[#f7ff66] cursor-pointer"
                 >

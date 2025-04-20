@@ -3,7 +3,7 @@ import axios from "../Component/Axios";
 import React, { useEffect, useState } from "react";
 import CardBuffering from "./CardBuffering";
 import { useNavigate } from "react-router-dom";
-
+import slugify from "slugify";
 
 const Movies = () => {
 
@@ -107,7 +107,7 @@ const Movies = () => {
            {/* bottom card content*/}
            <div className="bottom flex border h-fit items-center border-white justify-between ">
             <span className="text-[#668fff] " >Popularity: {item.popularity>100?  "High" : 'Very Low'}</span>
-            <span onClick={()=>{navigate('/movies/watch_Movies', {state: item})}} className="bottom text-[#f7ff66]  cursor-pointer">
+            <span onClick={()=>{navigate(`/movies/${slugify(item.name || item.title)}`, {state: item})}} className="bottom text-[#f7ff66]  cursor-pointer">
               {/* {item.status} Watch Now */}
               <RiPlayCircleFill className="size-15" />
             </span>

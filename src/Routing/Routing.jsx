@@ -9,7 +9,11 @@ import TrendingPreviewPage from "../Component/Preview/TrendingPreviewPage";
 import PopularPreviewPage from "../Component/Preview/PopularPreviewPage";
 import MoviePreviewPage from "../Component/Preview/MoviePreviewPage";
 import TvShowsPreviewPage from "../Component/Preview/TvShowsPreviewPage";
+
+
+
 const Routing = () => {
+  
   return (
     <>
       <Routes>
@@ -29,25 +33,25 @@ const Routing = () => {
           Tvshows
         </Route>
         <Route
-          path="/trending/watch_trending"
+          path="/trending/:slug"
           element={<TrendingPreviewPage />}
         >
           watch Trending
         </Route>
         <Route
-          path="/popular/watch_popular"
+          path="/popular/:slug"
           element={<PopularPreviewPage/>}
         >
           watch Popular
         </Route>
         <Route
-          path="/movies/watch_Movies"
+          path="/movies/:slug"
           element={<MoviePreviewPage/>}
         >
           watch Movies
         </Route>
         <Route
-          path="/tvShow/watch_TvShows"
+          path="/tvShow/:slug"
           element={<TvShowsPreviewPage/>}
         >
           watch TvShows
