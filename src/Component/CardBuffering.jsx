@@ -3,9 +3,9 @@ import React from "react";
 const CardBuffering = () => {
   return (
     <>
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => {
+      {[1, 2, 3, 4, 5, 6, 7, 8].map((item,id) => {
         return (
-          <div className="hover:scale-101 w-full h-70 flex flex-col justify-between gap-2 rounded-2xl border border-[#ffffff] bg-[#1e1e1e] p-4 shadow-lg transition-transform duration-200">
+          <div key={id} className="hover:scale-101 w-full h-70 flex flex-col justify-between gap-2 rounded-2xl border border-[#ffffff] bg-[#1e1e1e] p-4 shadow-lg transition-transform duration-200">
             {/* top of the card */}
             <div className="top space-y-2">
               <h3 className="h-35 w-full rounded bg-[#484848] text-[#484848]">
