@@ -9,7 +9,7 @@ import React, { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import CardBuffering from "./CardBuffering";
 import { useNavigate } from "react-router-dom";
-import TrendingPreviewPage from "./TrendingPreviewPage";
+import TrendingPreviewPage from "./Preview/TrendingPreviewPage";
 
 const Trending = () => {
   // const trendingshowBanners = [
@@ -197,7 +197,12 @@ const Trending = () => {
                 <span className="text-[#668fff] text-[12px]  ">
                   Popularity: {item.popularity > 100 ? "High" : "Very Low"}
                 </span>
-                <span onClick={() => navigate("/trending/watch_trending", { state: item })}  className="bottom text-[#f7ff66] cursor-pointer">
+                <span
+                  onClick={() =>
+                    navigate("/trending/watch_trending", { state: item })
+                  }
+                  className="bottom text-[#f7ff66] cursor-pointer"
+                >
                   <RiPlayCircleFill className="size-15 hover:border rounded-full " />
                 </span>
               </div>

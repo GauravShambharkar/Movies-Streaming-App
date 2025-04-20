@@ -2,6 +2,7 @@ import { RiGlobalLine, RiPlayCircleFill, RiShakeHandsFill, RiTvLine } from "@rem
 import axios from "../Component/Axios";
 import React, { useEffect, useState } from "react";
 import CardBuffering from "./CardBuffering";
+import { useNavigate } from "react-router-dom";
 
 
 const Movies = () => {
@@ -9,6 +10,8 @@ const Movies = () => {
   const [showMovieBanner, setShowMovieBanner] = useState(null);
   const [showMovies, setShowMovies] = useState([]);
   const [category, setCategory] = useState('all')
+
+  const navigate = useNavigate()
 
   async function renderPopulaMovie() {
     try{
@@ -104,7 +107,7 @@ const Movies = () => {
            {/* bottom card content*/}
            <div className="bottom flex border h-fit items-center border-white justify-between ">
             <span className="text-[#668fff] " >Popularity: {item.popularity>100?  "High" : 'Very Low'}</span>
-            <span className="bottom text-[#f7ff66]  cursor-pointer">
+            <span onClick={()=>{navigate('/movies/watch_Movies', {state: item})}} className="bottom text-[#f7ff66]  cursor-pointer">
               {/* {item.status} Watch Now */}
               <RiPlayCircleFill className="size-15" />
             </span>

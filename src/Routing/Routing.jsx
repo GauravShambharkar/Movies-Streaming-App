@@ -5,19 +5,56 @@ import Trending from "../Component/Trending";
 import Popular from "../Component/Popular";
 import Movies from "../Component/Movies";
 import TvShows from "../Component/Tvshow";
-import TrendingPreviewPage from "../Component/TrendingPreviewPage";
-
+import TrendingPreviewPage from "../Component/Preview/TrendingPreviewPage";
+import PopularPreviewPage from "../Component/Preview/PopularPreviewPage";
+import MoviePreviewPage from "../Component/Preview/MoviePreviewPage";
+import TvShowsPreviewPage from "../Component/Preview/TvShowsPreviewPage";
 const Routing = () => {
-  return <>
-  <Routes>
-    <Route path="/" element={<Home/>}>Home</Route>
-    <Route path="/trending" element={<Trending/>}>Series</Route>
-    <Route path="/popular" element={<Popular/>}>Popular</Route>
-    <Route path="/movies" element={<Movies/>}>Movies</Route>
-    <Route path="/tvshow" element={<TvShows/>}>Tvshows</Route>
-    <Route path="/trending/watch_trending" element={<TrendingPreviewPage/>}>watch Trending</Route>
-  </Routes>
-  </>;
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Home />}>
+          Home
+        </Route>
+        <Route path="/trending" element={<Trending />}>
+          Series
+        </Route>
+        <Route path="/popular" element={<Popular />}>
+          Popular
+        </Route>
+        <Route path="/movies" element={<Movies />}>
+          Movies
+        </Route>
+        <Route path="/tvshow" element={<TvShows />}>
+          Tvshows
+        </Route>
+        <Route
+          path="/trending/watch_trending"
+          element={<TrendingPreviewPage />}
+        >
+          watch Trending
+        </Route>
+        <Route
+          path="/popular/watch_popular"
+          element={<PopularPreviewPage/>}
+        >
+          watch Popular
+        </Route>
+        <Route
+          path="/movies/watch_Movies"
+          element={<MoviePreviewPage/>}
+        >
+          watch Movies
+        </Route>
+        <Route
+          path="/tvShow/watch_TvShows"
+          element={<TvShowsPreviewPage/>}
+        >
+          watch TvShows
+        </Route>
+      </Routes>
+    </>
+  );
 };
 
-export default Routing
+export default Routing;
