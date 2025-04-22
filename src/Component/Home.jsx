@@ -97,7 +97,7 @@ const Home = () => {
                  {/* Navigation Links */}
               <div className="flex flex-col gap-2 text-sm ">
                 <a
-                  href="#homeInitial"
+                  href="#"
                   className="hover:text-[#5095fc] transition-colors duration-200"
                 >
                   Home
