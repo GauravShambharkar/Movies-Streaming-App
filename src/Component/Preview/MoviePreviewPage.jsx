@@ -30,7 +30,7 @@ const MoviePreviewPage = () => {
                 {item.title || item.name}
               </h1>
 
-              <h1>{item.overview}...</h1>
+              <h1>{item.overview}</h1>
               <div className="flex gap-2">
                 <h1 className="flex gap-1 w-fit items-center border border-white">
                   <RiTvLine className="w-5 text-[#f7ff66]" /> Genre:{" "}
