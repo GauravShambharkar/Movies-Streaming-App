@@ -98,29 +98,23 @@ const Home = () => {
               <div className="flex flex-col gap-2 text-sm ">
                 <a
                   href="#"
-                  className="hover:text-[#5095fc] transition-colors duration-200"
-                >
+                  className="hover:text-[#5095fc] transition-colors duration-200">
                   Home
                 </a>
                 <Link
                   to="/trending"
-                  className="hover:text-[#5095fc] transition-colors duration-200"
-                >
+                  className="hover:text-[#5095fc] transition-colors duration-200">
                   Trending
                 </Link>
                 <a
                   href="https://www.themoviedb.org/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#5095fc] transition-colors duration-200"
-                >
+                  className="hover:text-[#5095fc] transition-colors duration-200">
                   TMDB
                 </a>
               </div>
-
               </div>
-
-             
 
               {/* Optional Social Icons */}
               <div className="flex gap-4 border-white">
