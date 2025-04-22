@@ -1,3 +1,4 @@
+import { RiFacebookBoxFill, RiGithubFill, RiLinkedinBoxFill } from "@remixicon/react";
 import axios from "./Axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -89,13 +90,12 @@ const Home = () => {
             <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
               
               {/* Branding & Copyright */}
-              <div className="text-center md:text-left">
+              <div className="text-center md:text-left  space-y-2 border-white">
                 <h3 className="text-xl font-semibold text-white">MovieStream</h3>
                 <p className="text-sm mt-1">&copy; {new Date().getFullYear()} All rights reserved.</p>
-              </div>
-
-              {/* Navigation Links */}
-              <div className="flex gap-6 text-sm">
+              
+                 {/* Navigation Links */}
+              <div className="flex flex-col gap-2 text-sm ">
                 <a
                   href="#homeInitial"
                   className="hover:text-[#5095fc] transition-colors duration-200"
@@ -118,16 +118,19 @@ const Home = () => {
                 </a>
               </div>
 
+              </div>
+
+             
+
               {/* Optional Social Icons */}
-              <div className="flex gap-4">
+              <div className="flex gap-4 border-white">
                 <a href="#" className="hover:text-white transition-colors duration-200">
-                  <i className="fab fa-twitter"></i>
+                  <RiFacebookBoxFill className="text-[#85baff]"/>                </a>
+                <a href="#" className="hover:text-white transition-colors duration-200">
+                  <RiGithubFill className="text-red-500"/>
                 </a>
                 <a href="#" className="hover:text-white transition-colors duration-200">
-                  <i className="fab fa-github"></i>
-                </a>
-                <a href="#" className="hover:text-white transition-colors duration-200">
-                  <i className="fab fa-linkedin"></i>
+                  <RiLinkedinBoxFill className="text-[#85baff]"/>
                 </a>
               </div>
             </div>
