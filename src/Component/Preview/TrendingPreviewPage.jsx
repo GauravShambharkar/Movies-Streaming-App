@@ -30,7 +30,7 @@ const TrendingPreviewPage = () => {
                 {item.title || item.name}
               </h1>
 
-              <h1>{item.overview?.slice(0, 150)}...</h1>
+              <h1>{item.overview}</h1>
               <div className="flex gap-2">
                 <h1 className="flex gap-1 w-fit items-center border border-white">
                   <RiTvLine className="w-5 text-[#f7ff66]" /> Genre:{" "}
@@ -52,7 +52,9 @@ const TrendingPreviewPage = () => {
             </div>
           </div>
         </div>
-      <div className="text-white border">text contents</div>
+      <div className="text-white border ">
+        <h1>text contents</h1>
+      </div>
       </div>
     </>
 );};

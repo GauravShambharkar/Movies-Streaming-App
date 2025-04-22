@@ -25,8 +25,8 @@ const Home = () => {
 
   return (
     <>
-      <div className="flex flex-col  justify-center items-center gap-4 backdrop-blur-sm p-4 border w-full h-full">
-        <h1 className="stroke-1  p-4 rounded-2xl font-semibold text-[#f7ff66] max-sm:text-[30px] max-md:text-3xl lg:text-7xl text-center">
+      <div className="scroll-smooth flex flex-col  justify-center items-center gap-4 backdrop-blur-sm p-4 border w-full h-full">
+        <h1 id="homeInitial" className="stroke-1  p-4 rounded-2xl font-semibold text-[#f7ff66] max-sm:text-[30px] max-md:text-3xl lg:text-7xl text-center">
           Your Streaming Guide For <br /> Movies, TV Shows & <br /> Sports.
         </h1>
         <p className="text-[#bdbdbd] text-center">
@@ -83,6 +83,55 @@ const Home = () => {
           ))}
         </div>
       </div>
+
+            {/* Footer Section */}
+            <footer className="bg-[#0a0a0a] text-[#bdbdbd] w-full border-t border-[#1f1f1f] py-8">
+            <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+              
+              {/* Branding & Copyright */}
+              <div className="text-center md:text-left">
+                <h3 className="text-xl font-semibold text-white">MovieStream</h3>
+                <p className="text-sm mt-1">&copy; {new Date().getFullYear()} All rights reserved.</p>
+              </div>
+
+              {/* Navigation Links */}
+              <div className="flex gap-6 text-sm">
+                <a
+                  href="#homeInitial"
+                  className="hover:text-[#5095fc] transition-colors duration-200"
+                >
+                  Home
+                </a>
+                <Link
+                  to="/trending"
+                  className="hover:text-[#5095fc] transition-colors duration-200"
+                >
+                  Trending
+                </Link>
+                <a
+                  href="https://www.themoviedb.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#5095fc] transition-colors duration-200"
+                >
+                  TMDB
+                </a>
+              </div>
+
+              {/* Optional Social Icons */}
+              <div className="flex gap-4">
+                <a href="#" className="hover:text-white transition-colors duration-200">
+                  <i className="fab fa-twitter"></i>
+                </a>
+                <a href="#" className="hover:text-white transition-colors duration-200">
+                  <i className="fab fa-github"></i>
+                </a>
+                <a href="#" className="hover:text-white transition-colors duration-200">
+                  <i className="fab fa-linkedin"></i>
+                </a>
+              </div>
+            </div>
+          </footer>
     </>
   );
 };

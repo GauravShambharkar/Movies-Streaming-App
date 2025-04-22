@@ -12,7 +12,7 @@ const Nav = () => {
   const [showNavMenu, setShowNavMenu] = useState(false)
 
   console.log("results", showQueryData);
-  console.log(query);
+  // console.log(query);
 
 function removeSearchQuery(){
   document.querySelector('input').value = ''
@@ -118,7 +118,7 @@ const navigate = useNavigate()
                 ? `${item.overview.slice(0, 150)}...`
                 : item.overview}
             </h1>
-            <h1 className="text-[#8e9be3] max-sm:text-[12px]">Rating:9.9/10</h1>
+            <h1 className="text-[#8e9be3] max-sm:text-[12px]">{parseFloat(item.vote_average).toFixed(2)}/10</h1>
           </div>
         </div>})}      
       </div>) : ""}
