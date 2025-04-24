@@ -9,7 +9,7 @@ import React, { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import CardBuffering from "./CardBuffering";
 import { useNavigate } from "react-router-dom";
-import slugify from "slugify"
+import slugify from "slugify";
 
 const Trending = () => {
   // const trendingshowBanners = [
@@ -74,11 +74,11 @@ const Trending = () => {
   }, [category]);
 
   return (
-    <div className="w-full  border backdrop-blur-sm py-2 flex flex-col border-white justify-center items-center gap-8 ">
+    <div className="w-full   backdrop-blur-sm py-2 flex flex-col border-white justify-center items-center gap-8 ">
       {/* Trending banner */}
       {showBanner ? (
         <div
-          className="banner text-white border-white w-250 rounded-2xl h-120 mt-20 bg-cover bg-center max-lg:w-150 max-lg:h-90 max-md:w-90 max-md:h-55"
+          className="banner text-white border-white w-250 rounded-2xl h-120 mt-20 bg-cover bg-center max-lg:w-150 max-lg:h-90 max-md:w-150 max-md:h-80 max-sm:w-90 max-sm:h-55"
           style={{
             backgroundImage: `linear-gradient(to top, #000000 , rgba(0,0,0,0.10), rgba(0, 0, 0, 0)), url(https://image.tmdb.org/t/p/original/${
               showBanner.backdrop_path || showBanner.profile_path
@@ -87,9 +87,9 @@ const Trending = () => {
             backgroundSize: "cover",
           }}
         >
-          <div className="w-full h-full flex gap-2 flex-col justify-end border border-white p-4 max-md:text-[10px]">
+          <div className="w-full h-full flex gap-2 flex-col justify-end  border-white p-4 max-md:text-[10px]">
             {/* play button */}
-            <span className="bottom border-white border w-full h-full flex items-center justify-center text-[#f7ff66] max-md:hidden ">
+            <span className="bottom border-white  w-full h-full flex items-center justify-center text-[#f7ff66] max-md:hidden ">
               <RiPlayCircleFill className="size-25 text-[#6696ff65] hover:text-[#6696ff] transition-colors duration-300 ease cursor-pointer " />
             </span>
 
@@ -102,15 +102,15 @@ const Trending = () => {
             </h1>
             <h1>{showBanner.overview.slice(0, 150)}...</h1>
             <div className="flex gap-2">
-              <h1 className="flex gap-1 w-fit items-center border border-white">
+              <h1 className="flex gap-1 w-fit items-center  border-white">
                 {<RiTvLine className="w-5 text-[#f7ff66]" />}Genre:{" "}
                 {showBanner.media_type}
               </h1>
-              <h1 className=" w-fit border gap-1 flex items-center border-white">
+              <h1 className=" w-fit  gap-1 flex items-center border-white">
                 {<RiGlobalLine className="w-5 text-[#f7ff66]" />}Language:{" "}
                 {showBanner.original_language}
               </h1>
-              <span className="border gap-1 flex items-center border-white">
+              <span className=" gap-1 flex items-center border-white">
                 {<RiShakeHandsFill className="w-5 text-[#f7ff66]" />}Rating:{" "}
                 {showBanner.vote_average || "?"}/10
               </span>
@@ -129,7 +129,7 @@ const Trending = () => {
         </div>
       )}
 
-      <div className=" border border-white">
+      <div className="  border-white">
         <h2 className="text-[#f7ff66] lg:text-5xl text-3xl font-bold text-center">
           Trending Now
         </h2>
@@ -142,7 +142,7 @@ const Trending = () => {
       {/* dropDown category */}
       <div
         onChange={(e) => setCategory(e.target.value)}
-        className="container w-full h-fit  border flex justify-end border-white"
+        className="container w-full h-fit   flex justify-end border-white"
       >
         <select
           id="categorySelect"
@@ -166,12 +166,12 @@ const Trending = () => {
           dataLength={showTrending.length}
           next={showTrending}
           loader={<h4>Please Wait...</h4>}> */}
-      <div className="grid border p-4 border-white md:grid-cols-4 sm:grid-cols-2 gap-4 w-full max-w-7xl">
+      <div className="grid  p-4 border-white md:grid-cols-4 sm:grid-cols-2 gap-4 w-full max-w-7xl">
         {showTrending.length ? (
           showTrending.map((item, index) => (
             <div
               key={index}
-              className="bg-[#1e1e1e] border justify-between border-[#ffffff] p-4 flex flex-col gap-2 rounded-2xl shadow-lg hover:scale-101 transition-transform duration-200 "
+              className="bg-[#1e1e1e]  justify-between border-[#ffffff] p-4 flex flex-col gap-2 rounded-2xl shadow-lg hover:scale-101 transition-transform duration-200 "
             >
               {/* top of the card */}
               <div className="top">
@@ -193,13 +193,15 @@ const Trending = () => {
                 </h5>
               </div>
               {/* bottom card content*/}
-              <div className="bottom flex border  h-fit items-center border-white justify-between ">
+              <div className="bottom flex   h-fit items-center border-white justify-between ">
                 <span className="text-[#668fff] text-[12px]  ">
                   Popularity: {item.popularity > 100 ? "High" : "Very Low"}
                 </span>
                 <span
                   onClick={() =>
-                    navigate(`/trending/${slugify(item.name || item.title)}`, { state: item })
+                    navigate(`/trending/${slugify(item.name || item.title)}`, {
+                      state: item,
+                    })
                   }
                   className="bottom text-[#f7ff66] cursor-pointer"
                 >
