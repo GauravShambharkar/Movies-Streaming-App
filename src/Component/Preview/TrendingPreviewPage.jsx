@@ -46,7 +46,7 @@ const TrendingPreviewPage = () => {
         <div className="container  mx-auto text-white space-y-2 w-[100%] ">
           <h1>Movie: {item.title || item.name}</h1>
           <h1>Discription: {item.overview}</h1>
-          <h1 className="flex gap-1 w-fit items-center border border-white">
+          <h1 className="flex gap-1 w-fit items-center  border-white">
             <RiTvLine className="w-5 text-[#f7ff66]" /> Genre: {item.media_type}
           </h1>
           <h1 className=" w-fit  gap-1 flex items-center border-white">

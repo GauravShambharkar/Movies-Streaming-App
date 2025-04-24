@@ -47,7 +47,7 @@ const navigate = useNavigate()
   return (
     <>
     {/* navBar */}
-    <div className="navbar w-full justify-between fixed z-1 gap-4 items-center px-2 py-2 border-r border-b border-[#3f7cff]  bg-[#000000] backdrop-blur-lg flex pt-3">
+    <div className="navbar w-full justify-between fixed z-1 gap-4 items-center px-2 py-2 border-b border-[#3f7cff]  bg-[#000000] backdrop-blur-lg flex pt-3">
 
     {/* navBar left side */}
       <div className="text-[#4d7cff]  items-center text-2xl p-2 flex">
