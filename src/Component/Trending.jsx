@@ -69,6 +69,8 @@ const Trending = () => {
     }
   }
 
+
+
   useEffect(() => {
     renderBanner();
     renderTrending();
@@ -121,7 +123,9 @@ const Trending = () => {
             </button>
           </div>
         </div>
-      ) : <BannerBuffering/>}
+      ) : (
+        <BannerBuffering />
+      )}
 
       <div className="  border-white">
         <h2 className="text-[#f7ff66] lg:text-5xl text-3xl font-bold text-center">

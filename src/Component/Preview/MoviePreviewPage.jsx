@@ -1,16 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   RiGlobalLine,
+  RiLink,
   RiPlayCircleFill,
   RiShakeHandsFill,
   RiTvLine,
 } from "@remixicon/react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import BannerBuffering from "../BannerBuffering";
+import axios from "../Axios";
 
 const MoviePreviewPage = () => {
   const { state } = useLocation();
   const item = state || {}; // fallback in case nothing is passed
+
+  const [ detail, setDetails ] = useState([])
+  // const [getRecomendation, setRecomendation] = useState([])
+
+  async function TrendingDetails() {
+    const TrendingDetails = await axios.get(`movie/${item.id}`);
+    setDetails(TrendingDetails.data)
+  }
+  console.log("State ", detail);
+
+   useEffect(() => {
+      TrendingDetails()
+    },[]);
 
   return (
     <>
@@ -30,9 +45,14 @@ const MoviePreviewPage = () => {
                   <RiPlayCircleFill className="size-25 text-[#6696ff65] hover:text-[#6696ff] transition-colors duration-300 ease cursor-pointer " />
                 </span>
 
+                <div className="flex items-center gap-1">
                 <h1 className="text-4xl font-bold text-[#f7ff66] max-md:text-[20px]">
                   {item.title || item.name}
                 </h1>
+                <Link to={detail.homepage? detail.homepage : `/trending` } target="_blank" className="w-fit" >
+                <RiLink className="text-[#52a0ff] size-5"/>
+                </Link>
+                </div>
               </div>
             </div>
           </div>

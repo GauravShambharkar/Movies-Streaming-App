@@ -1,16 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   RiGlobalLine,
+  RiLink,
   RiPlayCircleFill,
   RiShakeHandsFill,
   RiTvLine,
 } from "@remixicon/react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import BannerBuffering from "../BannerBuffering";
+import axios from "../Axios";
 
 const TrendingPreviewPage = () => {
+  const navigate = useNavigate()
   const { state } = useLocation();
   const item = state || {}; // fallback in case nothing is passed
+
+  const [ detail, setDetails ] = useState([])
+  // const [getRecomendation, setRecomendation] = useState([])
+
+  async function TrendingDetails() {
+    const TrendingDetails = await axios.get(`movie/${item.id}`);
+    setDetails(TrendingDetails.data)
+  }
+  console.log("State ", detail);
+
+  // function Recomendation(){
+  //   const trendingRecomendation = axios.get(`movie/${item.id}/recommendations`)
+  //   setRecomendation(trendingRecomendation)
+  // }
+
+  // console.log("Recom ",getRecomendation);
+  
+
+  useEffect(() => {
+    TrendingDetails()
+    // Recomendation()
+  },[]);
 
   return (
     <>
@@ -29,10 +54,16 @@ const TrendingPreviewPage = () => {
                 <span className="bottom border-white  w-full h-full flex items-center justify-center text-[#f7ff66] max-md:hidden ">
                   <RiPlayCircleFill className="size-25 text-[#6696ff65] hover:text-[#6696ff] transition-colors duration-300 ease cursor-pointer " />
                 </span>
-
+                
+                <div className="flex items-center gap-1">
                 <h1 className="text-4xl font-bold text-[#f7ff66] max-md:text-[20px]">
                   {item.title || item.name}
                 </h1>
+                <Link to={detail.homepage? detail.homepage : `/trending` } target="_blank" className="w-fit" >
+                <RiLink className="text-[#52a0ff] size-5"/>
+                </Link>
+                </div>
+                
               </div>
             </div>
           </div>
@@ -40,11 +71,11 @@ const TrendingPreviewPage = () => {
           <BannerBuffering />
         )}
 
-        <div className="container  mx-auto text-white space-y-2 w-[100%] ">
+        <div className="container mx-auto text-white space-y-2 w-[100%] ">
           <h1>Movie: {item.title || item.name}</h1>
           <h1>Discription: {item.overview}</h1>
           <h1 className="flex gap-1 w-fit items-center  border-white">
-            <RiTvLine className="w-5 text-[#f7ff66]" /> Genre: {item.media_type}
+            <RiTvLine className="w-5 text-[#f7ff66]" />{item.media_type}
           </h1>
           <h1 className=" w-fit  gap-1 flex items-center border-white">
             <RiGlobalLine className="w-5 text-[#f7ff66]" /> Language:{" "}
