@@ -52,7 +52,7 @@ const navigate = useNavigate()
     {/* navBar left side */}
       <div className="text-[#4d7cff]  items-center text-2xl p-2 flex">
       <RiMovie2Line/> 
-      <h1 onClick={()=>toHome()} className="font-black text-[#5381ff]  ">StreamUp</h1>
+      <h1 onClick={()=>toHome()} className="font-black cursor-pointer text-[#5381ff]  ">StreamUp</h1>
       </div>
 
 
