@@ -10,6 +10,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import CardBuffering from "./CardBuffering";
 import { useNavigate } from "react-router-dom";
 import slugify from "slugify";
+import BannerBuffering from "./BannerBuffering";
 
 const Trending = () => {
   // const trendingshowBanners = [
@@ -120,14 +121,7 @@ const Trending = () => {
             </button>
           </div>
         </div>
-      ) : (
-        <div className="text-white flex justify-center bg-black border-white w-250 rounded-2xl h-120 mt-20 bg-cover bg-center max-lg:w-150 max-lg:h-90 max-md:w-90 max-md:h-55 overflow-hidden">
-          <img
-            className=""
-            src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmFnaXg0eWhnaWxtbXJ3Z3BuZmc1aXlmenlsbGp2ZHA1MjgyaWF0ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ycfHiJV6WZnQDFjSWH/giphy.gif"
-          />
-        </div>
-      )}
+      ) : <BannerBuffering/>}
 
       <div className="  border-white">
         <h2 className="text-[#f7ff66] lg:text-5xl text-3xl font-bold text-center">
@@ -142,7 +136,7 @@ const Trending = () => {
       {/* dropDown category */}
       <div
         onChange={(e) => setCategory(e.target.value)}
-        className="container w-full h-fit   flex justify-end border-white"
+        className="container w-full h-fit  px-4 flex justify-end border-white"
       >
         <select
           id="categorySelect"
