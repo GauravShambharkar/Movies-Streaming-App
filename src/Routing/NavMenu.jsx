@@ -3,8 +3,10 @@ import { NavLink } from 'react-router-dom'
 
 const NavMenu = ({setShowNavMenu}) => {
   return (
-    <div className='w-full fixed top-0 right-0 z-10 mt-16 bg-black  flex justify-end p-4 border-white transition-all duration-500 ease-in-out transform animate-fade-slide'>
-        <div className='border-white w-fit' >
+    <div className='w-full fixed bottom-0 rounded-full right-0 z-10 flex justify-center p-4 border-white transition-all duration-500 ease-in-out transform animate-fade-slide'>
+        <div className="border-white p-3 rounded-full bg-[#ffffff26] backdrop-blur-2xl">
+
+        <div className='border-white w-fit flex gap-6' >
         <NavLink onClick={()=>setShowNavMenu('')} to='/' className={({isActive})=>{
               return isActive? "text-[#f7ff66]  items-center flex gap-2 text-[16px] " : "text-[#ffffff] hover:text-[#fbffb7] items-center text-[16px] flex gap-2"
             }}>
@@ -27,6 +29,7 @@ const NavMenu = ({setShowNavMenu}) => {
             }}  >
               TVshow</NavLink>
             </div>
+        </div>
         </div>
   )
 }
