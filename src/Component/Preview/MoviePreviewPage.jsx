@@ -100,7 +100,7 @@ const MoviePreviewPage = () => {
           </div> */}
         <div className="grid p-4 mx-auto border-white md:grid-cols-4 sm:grid-cols-2 gap-6 w-full max-w-7xl">
           {getRecomendation.map((item, index) => (
-            <div
+            getRecomendation.length > 0 ? <div
               key={index}
               className="bg-[#1e1e1e] relative justify-between border-[#ffffff] p-4 flex flex-col gap-2 rounded-2xl shadow-lg hover:scale-101 transition-transform duration-200 "
             >
@@ -142,8 +142,8 @@ const MoviePreviewPage = () => {
                   <RiPlayCircleFill className="size-15" />
                 </span>
               </div>
-            </div>
-          ))}
+            </div> : <CardBuffering/>
+          ) ) }
         </div>
 
       </div>
