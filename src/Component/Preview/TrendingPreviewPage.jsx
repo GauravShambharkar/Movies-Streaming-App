@@ -39,7 +39,7 @@ const TrendingPreviewPage = () => {
 
   return (
     <>
-      <div className="w-full  border-white space-y-2 p-4 bg-black">
+      <div className="w-full h-screen border-white space-y-2 p-4 bg-black">
         {item ? (
           <div className="banner mt-17 border-white flex justify-center">
             <div
@@ -59,9 +59,9 @@ const TrendingPreviewPage = () => {
                 <h1 className="text-4xl font-bold text-[#f7ff66] max-md:text-[20px]">
                   {item.title || item.name}
                 </h1>
-                <Link to={detail.homepage? detail.homepage : `/trending` } target="_blank" className="w-fit" >
+                {detail.homepage ? <Link to={detail.homepage} target="_blank" className="w-fit" >
                 <RiLink className="text-[#52a0ff] size-5"/>
-                </Link>
+                </Link> : null}
                 </div>
                 
               </div>
