@@ -39,7 +39,7 @@ const MoviePreviewPage = () => {
 
   return (
     <>
-      <div className="w-full border-white p-4 bg-black">
+      <div className="w-full border border-white p-4 bg-black">
         {item ? (
           <div className="banner mt-17 flex justify-center">
             <div
@@ -95,13 +95,17 @@ const MoviePreviewPage = () => {
         {/* cards */}
         
 
-        <h1 className="text-black px-2 font-medium w-fit bg-[yellow] rounded-full text-center mt-2 flex">Similar <RiArrowRightDownLine/></h1>
+        {/* <div className="conatainer w-320 max-md:w-170 max-sm:w-90 mx-auto  border-white ">
+          <h1 className="text-black  px-2 font-medium w-fit bg-[yellow] rounded-full text-center  mt-2 flex">Recomendation<RiArrowRightDownLine/></h1>
+          </div> */}
         <div className="grid p-4 mx-auto border-white md:grid-cols-4 sm:grid-cols-2 gap-6 w-full max-w-7xl">
           {getRecomendation.map((item, index) => (
             <div
               key={index}
-              className="bg-[#1e1e1e] justify-between border-[#ffffff] p-4 flex flex-col gap-2 rounded-2xl shadow-lg hover:scale-101 transition-transform duration-200 "
+              className="bg-[#1e1e1e] relative justify-between border-[#ffffff] p-4 flex flex-col gap-2 rounded-2xl shadow-lg hover:scale-101 transition-transform duration-200 "
             >
+              <h1 className="text-black shadow-2xl absolute text-[12px] items-center top-0 px-2 font-medium w-fit bg-[#f7ff66] backdrop-blur-2xl rounded-full text-center  mt-2 flex">Recomendation<RiArrowRightDownLine/></h1>
+
               <div className="top">
                 {item.backdrop_path ? <img
                   className="rounded-md"
@@ -120,7 +124,8 @@ const MoviePreviewPage = () => {
                   {item.overview.slice(0, 150)}...
                 </p>
                 {/* <h5 className="text-[#f7ff66]" >Type: {item.media_type}</h5> */}
-              </div>
+                </div>
+
               <div className="bottom flex h-fit items-center border-white justify-between ">
                 <span className="text-[#668fff] ">
                   Popularity: {item.popularity > 100 ? "High" : "Very Low"}
