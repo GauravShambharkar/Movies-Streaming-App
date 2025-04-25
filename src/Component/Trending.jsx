@@ -69,8 +69,6 @@ const Trending = () => {
     }
   }
 
-
-
   useEffect(() => {
     renderBanner();
     renderTrending();
