@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
+  RiArrowDownLine,
+  RiArrowRightDownLine,
   RiGlobalLine,
   RiLink,
   RiPlayCircleFill,
@@ -9,27 +11,35 @@ import {
 import { Link, useLocation } from "react-router-dom";
 import BannerBuffering from "../BannerBuffering";
 import axios from "../Axios";
+import CardBuffering from "../CardBuffering";
 
 const MoviePreviewPage = () => {
   const { state } = useLocation();
   const item = state || {}; // fallback in case nothing is passed
 
-  const [ detail, setDetails ] = useState([])
-  // const [getRecomendation, setRecomendation] = useState([])
+  const [detail, setDetails] = useState([]);
+  const [getRecomendation, setRecomendation] = useState([]);
 
-  async function TrendingDetails() {
-    const TrendingDetails = await axios.get(`movie/${item.id}`);
-    setDetails(TrendingDetails.data)
+  async function MovieDetails() {
+    const MovieDetails = await axios.get(`movie/${item.id}`);
+    setDetails(MovieDetails.data);
   }
   console.log("State ", detail);
 
-   useEffect(() => {
-      TrendingDetails()
-    },[]);
+  async function recommendations() {
+    const recommendations = await axios.get(`movie/${item.id}/recommendations`);
+    setRecomendation(recommendations.data.results);
+  }
+  console.log("recomendation", getRecomendation);
+
+  useEffect(() => {
+    MovieDetails();
+    recommendations();
+  }, []);
 
   return (
     <>
-      <div className="w-full h-screen border-white p-4 bg-black">
+      <div className="w-full border-white p-4 bg-black">
         {item ? (
           <div className="banner mt-17 flex justify-center">
             <div
@@ -46,19 +56,27 @@ const MoviePreviewPage = () => {
                 </span>
 
                 <div className="flex items-center gap-1">
-                <h1 className="text-4xl font-bold text-[#f7ff66] max-md:text-[20px]">
-                  {item.title || item.name}
-                </h1>
-                <Link to={detail.homepage? detail.homepage : `/trending` } target="_blank" className="w-fit" >
-                <RiLink className="text-[#52a0ff] size-5"/>
-                </Link>
+                  <h1 className="text-4xl font-bold text-[#f7ff66] max-md:text-[20px]">
+                    {item.title || item.name}
+                  </h1>
+                  {detail.homepage ? (
+                    <Link
+                      to={detail.homepage}
+                      target="_blank"
+                      className="w-fit"
+                    >
+                      <RiLink className="text-[#52a0ff] size-5" />
+                    </Link>
+                  ) : null}
                 </div>
               </div>
             </div>
           </div>
-        ) : <BannerBuffering/>}
+        ) : (
+          <BannerBuffering />
+        )}
 
-        <div className="container  mx-auto text-white space-y-2 w-[100%] ">
+        <div className="container mx-auto text-white space-y-2 w-[100%] ">
           <h1>Movie: {item.title || item.name}</h1>
           <h1>Discription: {item.overview}</h1>
           <h1 className="flex gap-1 w-fit items-center  border-white">
@@ -73,6 +91,56 @@ const MoviePreviewPage = () => {
             {parseInt(item.vote_average).toFixed(1)}/10
           </span>
         </div>
+        
+        {/* cards */}
+        
+
+        <h1 className="text-black px-2 font-medium w-fit bg-[yellow] rounded-full text-center mt-2 flex">Similar <RiArrowRightDownLine/></h1>
+        <div className="grid p-4 mx-auto border-white md:grid-cols-4 sm:grid-cols-2 gap-6 w-full max-w-7xl">
+          {getRecomendation.map((item, index) => (
+            <div
+              key={index}
+              className="bg-[#1e1e1e] justify-between border-[#ffffff] p-4 flex flex-col gap-2 rounded-2xl shadow-lg hover:scale-101 transition-transform duration-200 "
+            >
+              <div className="top">
+                {item.backdrop_path ? <img
+                  className="rounded-md"
+                  src={`https://image.tmdb.org/t/p/original/${
+                    item.backdrop_path || item.profile_path
+                  }`}
+                  alt=""
+                /> : <div className=" w-full h-40 flex  border-white overflow-hidden"><img className="w-80 mix-blend-exclusion flex mx-auto" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3BqMjA3aGZpZTlhajc3YXE3b24yc3M4ZHZkM2t6dWpndW9iNGNqcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ycfHiJV6WZnQDFjSWH/giphy.gif"/></div>}
+                <h3 className="text-xl text-white font-semibold">
+                  {item.title ||
+                    item.name ||
+                    item.original_title ||
+                    item.original_name}
+                </h3>
+                <p className="text-sm text-[#9ca3af]">
+                  {item.overview.slice(0, 150)}...
+                </p>
+                {/* <h5 className="text-[#f7ff66]" >Type: {item.media_type}</h5> */}
+              </div>
+              <div className="bottom flex h-fit items-center border-white justify-between ">
+                <span className="text-[#668fff] ">
+                  Popularity: {item.popularity > 100 ? "High" : "Very Low"}
+                </span>
+                <span
+                  onClick={() => {
+                    navigate(`/movies/${slugify(item.name || item.title)}`, {
+                      state: item,
+                    });
+                  }}
+                  className="bottom text-[#f7ff66]  cursor-pointer"
+                >
+                  {/* {item.status} Watch Now */}
+                  <RiPlayCircleFill className="size-15" />
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
     </>
   );
