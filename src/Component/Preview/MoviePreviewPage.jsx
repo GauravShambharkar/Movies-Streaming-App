@@ -8,21 +8,23 @@ import {
   RiShakeHandsFill,
   RiTvLine,
 } from "@remixicon/react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import BannerBuffering from "../BannerBuffering";
 import axios from "../Axios";
 import CardBuffering from "../CardBuffering";
+import slugify from "slugify";
 
 const MoviePreviewPage = () => {
   const { state } = useLocation();
   const item = state || {}; // fallback in case nothing is passed
+  const navigate = useNavigate()
 
   const [detail, setDetails] = useState([]);
   const [getRecomendation, setRecomendation] = useState([]);
 
   async function MovieDetails() {
-    const MovieDetails = await axios.get(`movie/${item.id}`);
-    setDetails(MovieDetails.data);
+    const MovieDetails = await axios.get(`movie/${item.id}/videos`);
+    setDetails(MovieDetails.data.results);
   }
   console.log("State ", detail);
 
@@ -39,7 +41,7 @@ const MoviePreviewPage = () => {
 
   return (
     <>
-      <div className="w-full border border-white p-4 bg-black">
+      <div className="w-full  border-white p-4 bg-black">
         {item ? (
           <div className="banner mt-17 flex justify-center">
             <div
@@ -77,8 +79,8 @@ const MoviePreviewPage = () => {
         )}
 
         <div className="container mx-auto text-white space-y-2 w-[100%] ">
-          <h1>Movie: {item.title || item.name}</h1>
-          <h1>Discription: {item.overview}</h1>
+          {/* <h1>Movie: {item.title || item.name}</h1> */}
+          <h1>Description: {item.overview}</h1>
           <h1 className="flex gap-1 w-fit items-center  border-white">
             <RiTvLine className="w-5 text-[#f7ff66]" /> Genre: {item.media_type}
           </h1>
@@ -104,7 +106,7 @@ const MoviePreviewPage = () => {
               key={index}
               className="bg-[#1e1e1e] relative justify-between border-[#ffffff] p-4 flex flex-col gap-2 rounded-2xl shadow-lg hover:scale-101 transition-transform duration-200 "
             >
-              <h1 className="text-black shadow-2xl absolute text-[12px] items-center top-0 px-2 font-medium w-fit bg-[#f7ff66] backdrop-blur-2xl rounded-full text-center  mt-2 flex">Recomendation<RiArrowRightDownLine/></h1>
+              <h1 className="text-black border-b absolute text-[14px] items-center top-0 px-2 font-medium w-fit bg-[#f7ff66] backdrop-blur-2xl rounded-full text-center  mt-2 flex">Recomendation<RiArrowRightDownLine className="size-5 " /></h1>
 
               <div className="top">
                 {item.backdrop_path ? <img
@@ -132,9 +134,9 @@ const MoviePreviewPage = () => {
                 </span>
                 <span
                   onClick={() => {
-                    navigate(`/movies/${slugify(item.name || item.title)}`, {
+                    navigate(`/movies/playing/${slugify(item.name || item.title)}`, {
                       state: item,
-                    });
+                    }), <a href='#'/>
                   }}
                   className="bottom text-[#f7ff66]  cursor-pointer"
                 >

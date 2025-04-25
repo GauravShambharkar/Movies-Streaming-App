@@ -31,7 +31,7 @@ const TvShows = () => {
       console.log("Error", e);
     }
   }
-  console.log("Popular", showTvBanner);
+  console.log("TvShows", showTvBanner);
 
   async function renderTvShows() {
     try {

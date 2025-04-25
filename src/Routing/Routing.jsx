@@ -9,6 +9,7 @@ import TrendingPreviewPage from "../Component/Preview/TrendingPreviewPage";
 import PopularPreviewPage from "../Component/Preview/PopularPreviewPage";
 import MoviePreviewPage from "../Component/Preview/MoviePreviewPage";
 import TvShowsPreviewPage from "../Component/Preview/TvShowsPreviewPage";
+import PlayingMovies from "../Component/Playing/PlayingMovies";
 
 
 
@@ -56,6 +57,7 @@ const Routing = () => {
         >
           watch TvShows
         </Route>
+        <Route path='movies/playing/:slug' element={<PlayingMovies/>}/>
       </Routes>
     </>
   );
