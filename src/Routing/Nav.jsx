@@ -88,12 +88,12 @@ const navigate = useNavigate()
             <input onChange={(e)=>setQuery(e.target.value)} type="text" placeholder="Search movies, trending shows and more" className="border-b border-[#ffffff] text-white outline-none w-full" />
             {query.length > 0? (<RiCloseLargeLine onClick={()=>{setQuery(''),removeSearchQuery()}} className="cursor-pointer text-white"/>) : ""}
             <RiSearch2Line className="text-white" />
-            <div className="NavMenu">
+            {/* <div className="NavMenu"> */}
               {/* <span onClick={()=>renderNavMenu()}  >
                 {showNavMenu == true? <RiCloseLargeLine className="text-white hidden max-sm:block size-5"/>  : (<RiMenu2Fill className="text-white hidden max-sm:block size-5"/>) }
               </span> */}
               {/* {showNavMenu === true? <NavMenu setShowNavMenu={setShowNavMenu} /> : null} */}
-            </div>
+            {/* </div> */}
 
             </div>
       </div>

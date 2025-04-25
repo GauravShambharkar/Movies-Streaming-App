@@ -8,24 +8,24 @@ const NavMenu = () => {
 
         {/* <div className='border border-white w-fit flex gap-5 ' > */}
         <NavLink  to='/' className={({isActive})=>{
-              return isActive? "text-[#f7ff66]  items-center flex gap-2 text-[16px] " : "text-[#ffffff] hover:text-[#fbffb7] items-center text-[16px] flex gap-2"
+              return isActive? "text-[#ffffff] px-2 rounded-full bg-blue-400 items-center flex gap-2 text-[16px] " : "text-[#ffffff] hover:text-[#fbffb7] items-center text-[16px] flex gap-2"
             }}>
               Home</NavLink>
             <NavLink  to='/trending' className={({isActive})=>{
-              return isActive? "text-[#f7ff66] flex gap-2 items-center justify-end text-[16px]" : "text-[#ffffff] hover:text-[#fbffb7] items-center flex text-[16px] gap-2"
+              return isActive? "text-[#ffffff] flex gap-2 px-2 rounded-full bg-blue-400 items-center justify-end text-[16px]" : "text-[#ffffff] hover:text-[#fbffb7] items-center flex text-[16px] gap-2"
             }}  >
               Trending</NavLink>
             <NavLink  to='/popular' className={({isActive})=>{
-              return isActive? "text-[#f7ff66] flex gap-2 items-center text-[16px]" : "text-[#ffffff] hover:text-[#fbffb7] items-center flex text-[16px] gap-2"
+              return isActive? "text-[#ffffff] flex gap-2 px-2 rounded-full bg-blue-400 items-center text-[16px]" : "text-[#ffffff] hover:text-[#fbffb7] items-center flex text-[16px] gap-2"
             }}  >
               Popular</NavLink>
             <NavLink  to='/movies' className={({isActive})=>{
-              return isActive? "text-[#f7ff66] flex gap-2 items-center text-[16px]" : "text-[#ffffff] hover:text-[#fbffb7] items-center flex text-[16px] gap-2"
+              return isActive? "text-[#ffffff] flex gap-2 px-2 rounded-full bg-blue-400 items-center text-[16px]" : "text-[#ffffff] hover:text-[#fbffb7] items-center flex text-[16px] gap-2"
             }}  >
               Movies</NavLink>
 
             <NavLink  to='/tvshow' className={({isActive})=>{
-              return isActive? "text-[#f7ff66] flex gap-2 items-center text-[16px]" : "text-[#ffffff] hover:text-[#fbffb7] items-center flex text-[16px] gap-2"
+              return isActive? "text-[#ffffff] flex gap-2 px-2 rounded-full bg-blue-400 items-center text-[16px]" : "text-[#ffffff] hover:text-[#fbffb7] items-center flex text-[16px] gap-2"
             }}  >
               TVshow</NavLink>
             </div>
