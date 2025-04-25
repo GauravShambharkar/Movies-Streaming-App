@@ -149,7 +149,6 @@ const Movies = () => {
                 </p>
                 {/* <h5 className="text-[#f7ff66]" >Type: {item.media_type}</h5> */}
               </div>
-              {/* bottom card content*/}
               <div className="bottom flex h-fit items-center border-white justify-between ">
                 <span className="text-[#668fff] ">
                   Popularity: {item.popularity > 100 ? "High" : "Very Low"}
