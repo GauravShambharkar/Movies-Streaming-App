@@ -101,17 +101,17 @@ const navigate = useNavigate()
 
     </div>
 
-      {query.length>0? (<div id="inserchTab" className="top-17 z-1 bg-[#0000000b]  backdrop-blur-2xl border right-0 border-white overflow-auto scroll-auto absolute grid grid-cols-2 max-md:grid-cols-1 max-lg:grid-cols-1  gap-4 p-4 w-full h-110">
+      {query.length>0? (<div id="inserchTab" className="top-17  z-10 bg-[#0000000b]  backdrop-blur-2xl  right-0 border-b border-white overflow-auto scroll-auto fixed grid grid-cols-2 max-md:grid-cols-1 max-lg:grid-cols-1  gap-4 p-4 w-full h-110">
         {/* child cards */}
         {showQueryData.map((item,id)=>{
-            return <div key={id} className="flex gap-4 max-md:h-40 border border-white bg-[#1d1d1d] w-full rounded-sm child hover:bg-[#2c2c2c] duration-220 transition-colors ease-in-out">
+            return <div key={id} className="flex gap-4 max-md:h-40  border-white bg-[#1d1d1d] w-full rounded-sm child hover:bg-[#2c2c2c] duration-220 transition-colors ease-in-out">
           <img
             className="rounded-sm w-40 h-50 max-md:w-25 max-md:h-full object-cover  border-white"
             src={item.backdrop_path || item.profile_path ? `https://image.tmdb.org/t/p/original/${item.backdrop_path || item.profile_path}` : "https://scubapro.johnsonoutdoors.com/themes/custom/jo_base/assets/images/no-image-available-en.jpg" }
             alt=""
           />
           {/* text content */}
-          <div className="flex flex-col py-2 gap-2 border border-white pr-2 w-fit">
+          <div className="flex flex-col py-2 gap-2  border-white pr-2 w-fit">
             <h1 className="font-bold text-[#9cabff] max-md:text-[14px] ">{item.original_name || item.original_title}</h1>
             <h1 className="text-[#8e9be3] max-sm:text-[12px]">
               {item.overview?.length > 150
@@ -126,7 +126,6 @@ const navigate = useNavigate()
 
       <div className="hidden max-sm:block ">
         <NavMenu/>
-
       </div>
     </>
   );

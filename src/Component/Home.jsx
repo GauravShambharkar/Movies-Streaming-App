@@ -90,7 +90,7 @@ const Home = () => {
               key={index}
               className="bg-[#1a1a1a] cursor-pointer shadow p-4 rounded-xl hover:scale-105 transition-transform"
             >
-              <img
+              <img className="rounded-md"
                 src={`https://image.tmdb.org/t/p/original/${
                   item.backdrop_path || item.poster_path
                 }`}
