@@ -101,7 +101,7 @@ const navigate = useNavigate()
 
     </div>
 
-      {query.length>0? (<div id="inserchTab" className="top-17  z-10 bg-[#0000000b]  backdrop-blur-2xl  right-0 border-b border-white overflow-auto scroll-auto fixed grid grid-cols-2 max-md:grid-cols-1 max-lg:grid-cols-1  gap-4 p-4 w-full h-110">
+      {query.length>0? (<div id="inserchTab" className="top-18  z-10 bg-[#0000000b]  backdrop-blur-2xl  right-0 border-b border-white overflow-auto scroll-auto fixed grid grid-cols-2 max-md:grid-cols-1 max-lg:grid-cols-1  gap-4 p-4 w-full h-110">
         {/* child cards */}
         {showQueryData.map((item,id)=>{
             return <div key={id} className="flex gap-4 max-md:h-40  border-white bg-[#1d1d1d] w-full rounded-sm child hover:bg-[#2c2c2c] duration-220 transition-colors ease-in-out">
