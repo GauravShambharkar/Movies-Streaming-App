@@ -41,7 +41,7 @@ const MoviePreviewPage = () => {
 
   return (
     <>
-      <div className="w-full  border-white p-4 bg-black">
+      <div className="w-full border-white p-4 bg-black">
         {item ? (
           <div className="banner mt-17 flex justify-center">
             <div
@@ -101,8 +101,8 @@ const MoviePreviewPage = () => {
           <h1 className="text-black  px-2 font-medium w-fit bg-[yellow] rounded-full text-center  mt-2 flex">Recomendation<RiArrowRightDownLine/></h1>
           </div> */}
         <div className="grid p-4 mx-auto border-white md:grid-cols-4 sm:grid-cols-2 gap-6 w-full max-w-7xl">
-          {getRecomendation.map((item, index) => (
-            getRecomendation.length > 0 ? <div
+          { getRecomendation.length>0? getRecomendation.map((item, index) => {
+            return <div
               key={index}
               className="bg-[#1e1e1e] relative justify-between border-[#ffffff] p-4 flex flex-col gap-2 rounded-2xl shadow-lg hover:scale-101 transition-transform duration-200 "
             >
@@ -144,8 +144,8 @@ const MoviePreviewPage = () => {
                   <RiPlayCircleFill className="size-15" />
                 </span>
               </div>
-            </div> : <CardBuffering/>
-          ) ) }
+            </div>
+          } ) : <CardBuffering/> }
         </div>
 
       </div>

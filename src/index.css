@@ -20,19 +20,20 @@ body {
   background-size: cover;
   background-attachment: fixed;
 
-  ::-webkit-scrollbar{
+  ::-webkit-scrollbar {
     width: 9px;
     height: 5px;
   }
-  
-  ::-webkit-scrollbar-thumb{
+
+  ::-webkit-scrollbar-thumb {
     background: #a6a6a6;
     border-radius: 10px;
     border: 2px solid black;
   }
-  
+
 }
 
 
 /* faint-yellow - #f7ff66  */
 /* blue - #4576ff  */
+/* text size - 14px */
