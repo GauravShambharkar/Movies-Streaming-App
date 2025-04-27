@@ -14,8 +14,8 @@ const TvShowsPreviewPage = () => {
 
   return (
     <>
-      <div className="w-full h-screen border-white p-4 bg-black">
-        {item ? < div className="banner mt-17 flex justify-center">
+      <div className="w-full h-screen pb-15 px-4 pt-4 border-white p-4 bg-black">
+        {item ? < div className="banner mt-20 flex justify-center">
           <div
             className="banner  text-white  w-250 rounded-2xl h-120 bg-cover bg-center max-lg:w-150 max-lg:h-90 max-md:w-150 max-md:h-80 max-sm:w-90 max-sm:h-55"
             style={{

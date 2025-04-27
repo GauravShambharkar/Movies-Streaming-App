@@ -15,7 +15,7 @@ const PopularPreviewPage = () => {
 
   return (
     <>
-      <div className="w-full h-screen border-white p-4 bg-black">
+      <div className="w-full h-screen pb-15 px-4 pt-4 border-white p-4 bg-black">
         {item ? (
           <div className="banner mt-20 flex justify-center">
             <div

@@ -39,7 +39,7 @@ const TrendingPreviewPage = () => {
   return (
     <>
       <div
-        className="w-full h-screen border-white space-y-2 p-4 "
+        className="w-full h-screen pb-15 px-4 pt-4 border-white space-y-2 p-4 "
         style={{
           backgroundImage: `linear-gradient(to top, #000000 , rgba(0,0,0,0.10), rgba(0, 0, 0, 0)), url(https://image.tmdb.org/t/p/original/${
             item.backdrop_path || item.profile_path
@@ -50,7 +50,7 @@ const TrendingPreviewPage = () => {
         }}
       >
         {item ? (
-          <div className="banner  mt-17 border-white flex justify-center">
+          <div className="banner  mt-20 border-white flex justify-center">
             <div
               className="banner shadow-2xl border  text-[#858585]  w-250 rounded-2xl h-120 bg-cover bg-center max-lg:w-150 max-lg:h-90 max-md:w-150 max-md:h-80 max-sm:w-90 max-sm:h-55"
               style={{

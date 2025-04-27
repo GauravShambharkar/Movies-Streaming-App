@@ -75,7 +75,7 @@ const Trending = () => {
   }, [category]);
 
   return (
-    <div className="w-full   backdrop-blur-sm py-2 flex flex-col border-white justify-center items-center gap-8 ">
+    <div className="w-full pb-15 px-4 pt-4   backdrop-blur-sm py-2 flex flex-col border-white justify-center items-center gap-8 ">
       {/* Trending banner */}
       {showBanner ? (
         <div
