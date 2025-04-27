@@ -16,6 +16,8 @@ const Movies = () => {
   const [showMovies, setShowMovies] = useState([]);
   const [category, setCategory] = useState("all");
 
+  
+
   const navigate = useNavigate();
 
   async function renderPopulaMovie() {
@@ -38,7 +40,8 @@ const Movies = () => {
       const showTrend = await axios.get(`/movie/popular`);
       setShowMovies(showTrend.data.results);
       console.log(showTrend.data.results);
-    } catch (e) {
+    } 
+    catch (e) {
       console.log("Error", e);
     }
   }
@@ -49,7 +52,7 @@ const Movies = () => {
   }, [category]);
 
   return (
-    <div className="w-full  backdrop-blur-sm py-2 flex flex-col border-white justify-center items-center gap-8 ">
+    <div className="w-full border pb-15 px-4 pt-4 backdrop-blur-sm  flex flex-col border-white justify-center items-center gap-8 ">
       {/* Trending banner */}
       {showMovieBanner ? (
         <div

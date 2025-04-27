@@ -8,16 +8,20 @@ import {
   RiShakeHandsFill,
   RiTvLine,
 } from "@remixicon/react";
-import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate, useParams } from "react-router-dom";
 import BannerBuffering from "../BannerBuffering";
 import axios from "../Axios";
 import CardBuffering from "../CardBuffering";
 import slugify from "slugify";
+import { useDispatch } from "react-redux";
+import movieAction from "../Actions/MovieAction";
 
 const MoviePreviewPage = () => {
-  const { state } = useLocation();
+  const { state, index } = useLocation();
   const item = state || {}; // fallback in case nothing is passed
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const {id} = useParams()
 
   const [detail, setDetails] = useState([]);
   const [getRecomendation, setRecomendation] = useState([]);
@@ -37,13 +41,14 @@ const MoviePreviewPage = () => {
   useEffect(() => {
     MovieDetails();
     recommendations();
+    dispatch(movieAction(id))
   }, []);
 
   return (
     <>
-      <div className="w-full border-white p-4 bg-black">
+      <div className="w-full pb-15 px-4 pt-4 border-white bg-black">
         {item ? (
-          <div className="banner mt-17 flex justify-center">
+          <div className="banner mt-20 flex justify-center">
             <div
               className="banner text-white  w-250 rounded-2xl h-120 bg-cover bg-center max-lg:w-150 max-lg:h-90 max-md:w-150 max-md:h-80 max-sm:w-90 max-sm:h-55"
               style={{
@@ -54,7 +59,8 @@ const MoviePreviewPage = () => {
             >
               <div className="w-full h-full flex gap-2 flex-col justify-end  border-white p-4 max-md:text-[10px]">
                 <span className="bottom border-white  w-full h-full flex items-center justify-center text-[#f7ff66] max-md:hidden ">
-                  <RiPlayCircleFill className="size-25 text-[#6696ff65] hover:text-[#6696ff] transition-colors duration-300 ease cursor-pointer " />
+                  <h1 className="bg-blue-400 text-white font-bold p-3 rounded-full">Watch Trailer</h1>
+                  {/* <RiPlayCircleFill className="size-25 text-[#6696ff65] hover:text-[#6696ff] transition-colors duration-300 ease cursor-pointer " /> */}
                 </span>
 
                 <div className="flex items-center gap-1">

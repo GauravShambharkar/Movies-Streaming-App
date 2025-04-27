@@ -91,7 +91,7 @@ const Trending = () => {
           <div className="w-full h-full flex gap-2 flex-col justify-end  border-white p-4 max-md:text-[10px]">
             {/* play button */}
             <span className="bottom  border-white w-full h-full flex items-end justify-center text-[#f7ff66] max-md:hidden ">
-              <RiPlayCircleFill className="size-25 text-[#6696ff65] hover:text-[#6696ff] transition-colors duration-300 ease cursor-pointer " />
+              <RiPlayCircleFill className="size-25 text-[#ffffff1e] backdrop-blur-2xl hover:text-[#6696ff] transition-colors duration-300 ease cursor-pointer " />
             </span>
 
             {/* banner content */}
@@ -101,7 +101,7 @@ const Trending = () => {
                 showBanner.original_name ||
                 showBanner.original_title}
             </h1>
-            <h1>{showBanner.overview.slice(0, 150)}...</h1>
+            <h1>{showBanner.overview.slice(0, 250)}...</h1>
             <div className="flex gap-2">
               <h1 className="flex gap-1 w-fit items-center  border-white">
                 {<RiTvLine className="w-5 text-[#f7ff66]" />}Genre:{" "}
@@ -182,7 +182,7 @@ const Trending = () => {
                   {item.title || item.name}
                 </h3>
                 <p className="text-sm text-[#9ca3af]">
-                  {item.overview.slice(0, 100)}...
+                  {item.overview.slice(0, 150)}...
                 </p>
                 <h5 className="text-[#f7ff66] text-[12px]">
                   Type: {item.media_type}

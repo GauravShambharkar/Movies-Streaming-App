@@ -17,7 +17,7 @@ const PopularPreviewPage = () => {
     <>
       <div className="w-full h-screen border-white p-4 bg-black">
         {item ? (
-          <div className="banner mt-17 flex justify-center">
+          <div className="banner mt-20 flex justify-center">
             <div
               className="banner  text-white  w-250 rounded-2xl h-120 bg-cover bg-center max-lg:w-150 max-lg:h-90 max-md:w-150 max-md:h-80 max-sm:w-90 max-sm:h-55"
               style={{
@@ -28,7 +28,8 @@ const PopularPreviewPage = () => {
             >
               <div className="w-full h-full flex gap-2 flex-col justify-end  border-white p-4 max-md:text-[10px]">
                 <span className="bottom border-white  w-full h-full flex items-center justify-center text-[#f7ff66] max-md:hidden ">
-                  <RiPlayCircleFill className="size-25 text-[#6696ff65] hover:text-[#6696ff] transition-colors duration-300 ease cursor-pointer " />
+                  <h1 className="bg-blue-400 text-white font-bold p-3 rounded-full">Watch Trailer</h1>
+                  {/* <RiPlayCircleFill className="size-25 text-[#6696ff65] hover:text-[#6696ff] transition-colors duration-300 ease cursor-pointer " /> */}
                 </span>
 
                 <h1 className="text-4xl font-bold text-[#f7ff66] max-md:text-[20px]">

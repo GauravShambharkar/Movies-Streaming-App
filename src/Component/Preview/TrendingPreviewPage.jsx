@@ -11,16 +11,16 @@ import BannerBuffering from "../BannerBuffering";
 import axios from "../Axios";
 
 const TrendingPreviewPage = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { state } = useLocation();
   const item = state || {}; // fallback in case nothing is passed
 
-  const [ detail, setDetails ] = useState([])
+  const [detail, setDetails] = useState([]);
   // const [getRecomendation, setRecomendation] = useState([])
 
   async function TrendingDetails() {
     const TrendingDetails = await axios.get(`movie/${item.id}`);
-    setDetails(TrendingDetails.data)
+    setDetails(TrendingDetails.data);
   }
   console.log("State ", detail);
 
@@ -30,20 +30,29 @@ const TrendingPreviewPage = () => {
   // }
 
   // console.log("Recom ",getRecomendation);
-  
 
   useEffect(() => {
-    TrendingDetails()
+    TrendingDetails();
     // Recomendation()
-  },[]);
+  }, []);
 
   return (
     <>
-      <div className="w-full h-screen border-white space-y-2 p-4 bg-black">
+      <div
+        className="w-full h-screen border-white space-y-2 p-4 "
+        style={{
+          backgroundImage: `linear-gradient(to top, #000000 , rgba(0,0,0,0.10), rgba(0, 0, 0, 0)), url(https://image.tmdb.org/t/p/original/${
+            item.backdrop_path || item.profile_path
+          })`,
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+      >
         {item ? (
-          <div className="banner mt-17 border-white flex justify-center">
+          <div className="banner  mt-17 border-white flex justify-center">
             <div
-              className="banner  text-white  w-250 rounded-2xl h-120 bg-cover bg-center max-lg:w-150 max-lg:h-90 max-md:w-150 max-md:h-80 max-sm:w-90 max-sm:h-55"
+              className="banner shadow-2xl border  text-[#858585]  w-250 rounded-2xl h-120 bg-cover bg-center max-lg:w-150 max-lg:h-90 max-md:w-150 max-md:h-80 max-sm:w-90 max-sm:h-55"
               style={{
                 backgroundImage: `linear-gradient(to top, #000000 , rgba(0,0,0,0.10), rgba(0, 0, 0, 0)), url(https://image.tmdb.org/t/p/original/${
                   item.backdrop_path || item.profile_path
@@ -52,18 +61,24 @@ const TrendingPreviewPage = () => {
             >
               <div className="w-full h-full flex gap-2 flex-col justify-end  border-white p-4 max-md:text-[10px]">
                 <span className="bottom border-white  w-full h-full flex items-center justify-center text-[#f7ff66] max-md:hidden ">
-                  <RiPlayCircleFill className="size-25 text-[#6696ff65] hover:text-[#6696ff] transition-colors duration-300 ease cursor-pointer " />
+                  <h1 className="bg-[#ffffff14] border border-[#a1a1a1] backdrop-blur-md cursor-pointer hover:bg-[#ffffff60] transition-colors duration-300 ease-in-out text-white font-bold p-3 rounded-full">Watch Trailer</h1>
+                  {/* <RiPlayCircleFill className="size-25 text-[#6696ff65] hover:text-[#6696ff] transition-colors duration-300 ease cursor-pointer " /> */}
                 </span>
-                
+
                 <div className="flex items-center gap-1">
-                <h1 className="text-4xl font-bold text-[#f7ff66] max-md:text-[20px]">
-                  {item.title || item.name}
-                </h1>
-                {detail.homepage ? <Link to={detail.homepage} target="_blank" className="w-fit" >
-                <RiLink className="text-[#52a0ff] size-5"/>
-                </Link> : null}
+                  <h1 className="text-4xl font-bold text-[#f7ff66] max-md:text-[20px]">
+                    {item.title || item.name}
+                  </h1>
+                  {detail.homepage ? (
+                    <Link
+                      to={detail.homepage}
+                      target="_blank"
+                      className="w-fit"
+                    >
+                      <RiLink className="text-[#52a0ff] size-5" />
+                    </Link>
+                  ) : null}
                 </div>
-                
               </div>
             </div>
           </div>
@@ -75,7 +90,8 @@ const TrendingPreviewPage = () => {
           {/* <h1>Movie: {item.title || item.name}</h1> */}
           <h1>Description: {item.overview}</h1>
           <h1 className="flex gap-1 w-fit items-center  border-white">
-            <RiTvLine className="w-5 text-[#f7ff66]" />{item.media_type}
+            <RiTvLine className="w-5 text-[#f7ff66]" />
+            {item.media_type}
           </h1>
           <h1 className=" w-fit  gap-1 flex items-center border-white">
             <RiGlobalLine className="w-5 text-[#f7ff66]" /> Language:{" "}

@@ -49,7 +49,7 @@ const Popular = () => {
   }, [category]);
 
   return (
-    <div className="w-full  backdrop-blur-sm py-2 flex flex-col border-white justify-center items-center gap-8 ">
+    <div className="w-full  backdrop-blur-sm pb-15 px-4 pt-4 flex flex-col border-white justify-center items-center gap-8 ">
       {/* Trending banner */}
       {showPopularBanner ? (
         <div

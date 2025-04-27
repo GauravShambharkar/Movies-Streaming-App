@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import axios from "../Axios";
 
 const movieSlice = createSlice({
   name: "movie",
@@ -6,11 +7,11 @@ const movieSlice = createSlice({
     movie: [],
   },
   reducers: {
-    loadMovie: (state, action) => {
+    loadMovie: (id) => (state, action) => {
       state.info = action.payload;
     },
     removeMovie: (state, action) => {
-      state.info = null
+      state.info = null;
     },
   },
 });
