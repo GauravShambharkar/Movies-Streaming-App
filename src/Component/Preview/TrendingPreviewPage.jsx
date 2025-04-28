@@ -9,11 +9,14 @@ import {
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import BannerBuffering from "../BannerBuffering";
 import axios from "../Axios";
+import { useDispatch } from "react-redux";
+import movieAction from "../Actions/MovieAction";
 
 const TrendingPreviewPage = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
   const item = state || {}; // fallback in case nothing is passed
+  const dispatch = useDispatch()
 
   const [detail, setDetails] = useState([]);
   // const [getRecomendation, setRecomendation] = useState([])
@@ -34,6 +37,7 @@ const TrendingPreviewPage = () => {
   useEffect(() => {
     TrendingDetails();
     // Recomendation()
+    dispatch(movieAction(item.id))
   }, []);
 
   return (

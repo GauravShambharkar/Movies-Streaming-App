@@ -8,9 +8,11 @@ import axios from "../Component/Axios";
 import React, { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import CardBuffering from "./CardBuffering";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import slugify from "slugify";
 import BannerBuffering from "./BannerBuffering";
+import { useDispatch } from "react-redux";
+import movieAction from "./Actions/MovieAction";
 
 const Trending = () => {
   // const trendingshowBanners = [
@@ -40,6 +42,8 @@ const Trending = () => {
   const [showTrending, setShowTrending] = useState([]);
   const [category, setCategory] = useState("all");
   const [PreviewTrending, setPreviewTrending] = useState([]);
+  const dispatch = useDispatch();
+  const { id } = useParams();
 
   console.log("previewTrending", PreviewTrending);
   const navigate = useNavigate();
@@ -69,10 +73,18 @@ const Trending = () => {
     }
   }
 
+  
+
   useEffect(() => {
     renderBanner();
     renderTrending();
   }, [category]);
+
+  useEffect(() => {
+    if (showBanner) {
+      dispatch(movieAction(showBanner.id));
+    }
+  }, [showBanner]);
 
   return (
     <div className="w-full pb-15 px-4 pt-4   backdrop-blur-sm py-2 flex flex-col border-white justify-center items-center gap-8 ">

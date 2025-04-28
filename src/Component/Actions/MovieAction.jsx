@@ -16,10 +16,7 @@ const movieAction = (id) => async (dispatch) => {
     console.log("MovieAction", collectionOfData);
   } catch (error) {
     console.log(error);
-    
   }
 };
 
-
 export default movieAction;
-

@@ -17,11 +17,10 @@ import { useDispatch } from "react-redux";
 import movieAction from "../Actions/MovieAction";
 
 const MoviePreviewPage = () => {
-  const { state, index } = useLocation();
+  const { state } = useLocation();
   const item = state || {}; // fallback in case nothing is passed
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const {id} = useParams()
 
   const [detail, setDetails] = useState([]);
   const [getRecomendation, setRecomendation] = useState([]);
@@ -41,7 +40,7 @@ const MoviePreviewPage = () => {
   useEffect(() => {
     MovieDetails();
     recommendations();
-    dispatch(movieAction(id))
+    dispatch(movieAction(item.id))
   }, []);
 
   return (

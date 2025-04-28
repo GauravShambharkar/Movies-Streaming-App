@@ -10,6 +10,8 @@ import CardBuffering from "./CardBuffering";
 import { useNavigate } from "react-router-dom";
 import slugify from "slugify";
 import BannerBuffering from "./BannerBuffering";
+import { useDispatch } from "react-redux";
+import movieAction from "./Actions/MovieAction";
 
 const Popular = () => {
   const [showPopularBanner, setShowPopularBanner] = useState(null);
@@ -17,6 +19,7 @@ const Popular = () => {
   const [category, setCategory] = useState("popular");
 
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   async function renderPopularBanner() {
     try {
@@ -47,6 +50,14 @@ const Popular = () => {
     renderPopularBanner();
     renderPopular();
   }, [category]);
+
+  useEffect(()=>{
+    if(showPopularBanner)
+    {
+      dispatch(movieAction(showPopularBanner.id))
+    }
+
+  },[showPopularBanner])
 
   return (
     <div className="w-full  backdrop-blur-sm pb-15 px-4 pt-4 flex flex-col border-white justify-center items-center gap-8 ">

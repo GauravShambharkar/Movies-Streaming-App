@@ -16,7 +16,6 @@ const Movies = () => {
   const [showMovies, setShowMovies] = useState([]);
   const [category, setCategory] = useState("all");
 
-  
 
   const navigate = useNavigate();
 
@@ -50,6 +49,10 @@ const Movies = () => {
     renderPopulaMovie();
     renderMovie();
   }, [category]);
+
+  useEffect(()=>{
+
+  },[])
 
   return (
     <div className="w-full border pb-15 px-4 pt-4 backdrop-blur-sm  flex flex-col border-white justify-center items-center gap-8 ">
