@@ -8,7 +8,7 @@ import axios from "../Component/Axios";
 import React, { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import CardBuffering from "./CardBuffering";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import slugify from "slugify";
 import BannerBuffering from "./BannerBuffering";
 

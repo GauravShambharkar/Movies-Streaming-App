@@ -32,7 +32,6 @@ const TvShows = () => {
     }
   }
   console.log("TvShows", showTvBanner);
-
   async function renderTvShows() {
     try {
       const showTrend = await axios.get(`/tv/${category}`);
