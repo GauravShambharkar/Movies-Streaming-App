@@ -74,9 +74,10 @@ const Movies = () => {
         >
           <div className="w-full  h-full flex gap-2 flex-col justify-end  border-white p-4 max-md:text-[10px] ">
             {/* play button */}
-            <span className="bottom border-white w-full h-full flex items-end justify-center text-[#f7ff66] max-md:hidden ">
-              <RiPlayCircleFill className="size-25 text-[#6696ff65] hover:text-[#6696ff] transition-colors duration-300 ease cursor-pointer " />
+            <span className="bottom border-white  w-full h-full flex items-end justify-center text-[#f7ff66] max-md:hidden ">
+                <RiPlayCircleFill className="size-25 text-[#ffffff1e] hover:text-[#6696ff] rounded-full border backdrop-blur-2xl transition-colors duration-300 ease cursor-pointer " />
             </span>
+
             {/* movie name */}
             <h1 className="text-4xl font-bold text-[#f7ff66] max-md:text-[14px]">
               {showMovieBanner.name ||

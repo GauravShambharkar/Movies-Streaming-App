@@ -94,7 +94,7 @@ const Home = () => {
                   item.backdrop_path || item.poster_path
                 }`}
                 alt=""
-              />
+              /> 
               <h4 className="font-semibold text-[#ffffff] text-lg">
                 {item.original_name ||
                   item.name ||

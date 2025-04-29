@@ -111,8 +111,8 @@ const Trending = () => {
         >
           <div className="w-full  h-full flex gap-2 flex-col justify-end  border-white p-4 max-md:text-[10px]">
             {/* play button */}
-            <span className="bottom  border-white w-full h-full flex items-end justify-center text-[#f7ff66] max-md:hidden ">
-              <RiPlayCircleFill className="size-25 text-[#ffffff1e] backdrop-blur-2xl hover:text-[#6696ff] transition-colors duration-300 ease cursor-pointer " />
+            <span className="bottom  border-white w-full h-full flex  items-end justify-center text-[#f7ff66] max-md:hidden ">
+              <RiPlayCircleFill className="size-25 text-[#ffffff1e] rounded-full border backdrop-blur-2xl hover:text-[#6696ff] transition-colors duration-300 ease cursor-pointer " />
             </span>
 
             {/* banner content */}
@@ -191,7 +191,7 @@ const Trending = () => {
           showTrending.map((item, index) => (
             <div
               key={index}
-              className="bg-[#1e1e1e]  justify-between border-[#ffffff] p-4 flex flex-col gap-2 rounded-2xl shadow-lg hover:scale-105 transition-transform duration-200 "
+              className="bg-[#1e1e1e]  justify-between border-[#ffffff] p-4 flex flex-col gap-2 rounded-2xl shadow-lg hover:scale-101 transition-transform duration-200 "
             >
               {/* top of the card */}
               <div className="top">
@@ -225,7 +225,7 @@ const Trending = () => {
                   }
                   className="bottom text-[#f7ff66] cursor-pointer"
                 >
-                  <RiPlayCircleFill className="size-15 hover:border rounded-full " />
+                  <RiPlayCircleFill className="size-15 rounded-full " />
                 </span>
               </div>
             </div>
