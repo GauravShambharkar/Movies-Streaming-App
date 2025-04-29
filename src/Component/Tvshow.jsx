@@ -10,11 +10,15 @@ import CardBuffering from "./CardBuffering";
 import { useNavigate } from "react-router-dom";
 import slugify from "slugify";
 import BannerBuffering from "./BannerBuffering";
+import { useDispatch } from "react-redux";
+import movieAction from "./Actions/MovieAction";
+import TvShowAction from "./Actions/TvShowAction";
 
 const TvShows = () => {
   const [showTvBanner, setShowTvBanner] = useState(null);
   const [TvShows, setTvShows] = useState([]);
   const [category, setCategory] = useState("popular");
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
@@ -34,9 +38,9 @@ const TvShows = () => {
   console.log("TvShows", showTvBanner);
   async function renderTvShows() {
     try {
-      const showTrend = await axios.get(`/tv/${category}`);
-      setTvShows(showTrend.data.results);
-      console.log(showTrend.data.results);
+      const showTv = await axios.get(`/tv/${category}`);
+      setTvShows(showTv.data.results);
+      console.log(showTv.data.results);
     } catch (e) {
       console.log("Error", e);
     }
@@ -45,7 +49,17 @@ const TvShows = () => {
   useEffect(() => {
     renderTvShowsBanner();
     renderTvShows();
+    window.scrollTo(0, 0);
+    return () => {
+      console.clear();
+    };
   }, [category]);
+
+  useEffect(() => {
+    if (TvShows) {
+      dispatch(TvShowAction(TvShows.id));
+    }
+  }, [TvShows]);
 
   return (
     <div className="w-full pb-15 px-4 pt-4  backdrop-blur-sm py-2 flex flex-col border-white justify-center items-center gap-8 ">
@@ -93,7 +107,9 @@ const TvShows = () => {
             </button>
           </div>
         </div>
-      ) : <BannerBuffering/>}
+      ) : (
+        <BannerBuffering />
+      )}
 
       <div className="  border-white">
         <h2 className="text-[#f7ff66] lg:text-5xl text-3xl font-bold text-center">

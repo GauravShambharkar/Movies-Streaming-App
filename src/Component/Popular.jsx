@@ -49,6 +49,7 @@ const Popular = () => {
   useEffect(() => {
     renderPopularBanner();
     renderPopular();
+    window.scrollTo(0, 0);
   }, [category]);
 
   useEffect(()=>{
@@ -56,7 +57,9 @@ const Popular = () => {
     {
       dispatch(movieAction(showPopularBanner.id))
     }
-
+    return ()=>{
+      console.clear();
+    }
   },[showPopularBanner])
 
   return (

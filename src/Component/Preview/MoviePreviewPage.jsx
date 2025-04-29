@@ -40,6 +40,7 @@ const MoviePreviewPage = () => {
   useEffect(() => {
     MovieDetails();
     recommendations();
+    window.scrollTo(0, 0);
     dispatch(movieAction(item.id))
   }, []);
 
@@ -83,7 +84,7 @@ const MoviePreviewPage = () => {
           <BannerBuffering />
         )}
 
-        <div className="container mx-auto text-white space-y-2 w-[100%] ">
+        <div className="container  mx-auto text-white space-y-2 w-[100%] ">
           {/* <h1>Movie: {item.title || item.name}</h1> */}
           <h1>Description: {item.overview}</h1>
           <h1 className="flex gap-1 w-fit items-center  border-white">

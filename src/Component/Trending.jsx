@@ -1,6 +1,7 @@
 import {
   RiGlobalLine,
   RiPlayCircleFill,
+  RiResetRightLine,
   RiShakeHandsFill,
   RiTvLine,
 } from "@remixicon/react";
@@ -73,11 +74,19 @@ const Trending = () => {
     }
   }
 
+  const handleRefresh = () => {
+    navigate(0); // Reloads the current route
+  };
+
   
 
   useEffect(() => {
     renderBanner();
     renderTrending();
+    window.scrollTo(0, 0);
+    return ()=>{
+      // console.clear();
+    }
   }, [category]);
 
   useEffect(() => {
@@ -87,11 +96,11 @@ const Trending = () => {
   }, [showBanner]);
 
   return (
-    <div className="w-full pb-15 px-4 pt-4   backdrop-blur-sm py-2 flex flex-col border-white justify-center items-center gap-8 ">
+    <div className="w-full pb-15 px-4 pt-4  backdrop-blur-sm py-2 flex flex-col border-white justify-center items-center gap-8 ">
       {/* Trending banner */}
       {showBanner ? (
         <div
-          className="banner text-white border-white w-250 rounded-2xl h-120 mt-20 bg-cover bg-center max-lg:w-150 max-lg:h-90 max-md:w-150 max-md:h-80 max-sm:w-90 max-sm:h-55"
+          className="banner border text-white border-[#848484] w-250 rounded-2xl h-120 mt-20 bg-cover bg-center max-lg:w-150 max-lg:h-90 max-md:w-150 max-md:h-80 max-sm:w-90 max-sm:h-55"
           style={{
             backgroundImage: `linear-gradient(to top, #000000 , rgba(0,0,0,0.10), rgba(0, 0, 0, 0)), url(https://image.tmdb.org/t/p/original/${
               showBanner.backdrop_path || showBanner.profile_path
@@ -100,7 +109,7 @@ const Trending = () => {
             backgroundSize: "cover",
           }}
         >
-          <div className="w-full h-full flex gap-2 flex-col justify-end  border-white p-4 max-md:text-[10px]">
+          <div className="w-full  h-full flex gap-2 flex-col justify-end  border-white p-4 max-md:text-[10px]">
             {/* play button */}
             <span className="bottom  border-white w-full h-full flex items-end justify-center text-[#f7ff66] max-md:hidden ">
               <RiPlayCircleFill className="size-25 text-[#ffffff1e] backdrop-blur-2xl hover:text-[#6696ff] transition-colors duration-300 ease cursor-pointer " />
@@ -133,9 +142,12 @@ const Trending = () => {
             </button>
           </div>
         </div>
-      ) : (
-        <BannerBuffering />
-      )}
+      ) : 
+        // <BannerBuffering />
+      <div className="text-white flex justify-center items-center bg-black border-white w-250 rounded-2xl h-120 mt-20 bg-cover bg-center overflow-hidden max-lg:w-150 max-lg:h-90 max-md:w-150 max-md:h-80 max-sm:w-90 max-sm:h-55">
+        <RiResetRightLine onClick={()=>handleRefresh()} className="cursor-pointer" />
+      </div>
+      }
 
       <div className="  border-white">
         <h2 className="text-[#f7ff66] lg:text-5xl text-3xl font-bold text-center">
@@ -156,7 +168,7 @@ const Trending = () => {
           id="categorySelect"
           className="bg-[#1c1c1c] text-[#70a0ff] text-base rounded-md max-sm:w-fit py-1 focus:ring-[#7499ff] focus:border-[#7499ff] block p-3 w-full sm:w-72 transition duration-200 ease-in-out shadow-md hover:border-[#7499ff] hover:bg-[#232323] cursor-pointer"
         >
-          <option defaultValue className="text-[#8a8a8a]">
+          <option  className="text-[#8a8a8a]">
             Filter
           </option>
           <option value="all" defaultValue>
@@ -179,7 +191,7 @@ const Trending = () => {
           showTrending.map((item, index) => (
             <div
               key={index}
-              className="bg-[#1e1e1e]  justify-between border-[#ffffff] p-4 flex flex-col gap-2 rounded-2xl shadow-lg hover:scale-101 transition-transform duration-200 "
+              className="bg-[#1e1e1e]  justify-between border-[#ffffff] p-4 flex flex-col gap-2 rounded-2xl shadow-lg hover:scale-105 transition-transform duration-200 "
             >
               {/* top of the card */}
               <div className="top">

@@ -10,13 +10,15 @@ import CardBuffering from "./CardBuffering";
 import { useNavigate } from "react-router-dom";
 import slugify from "slugify";
 import BannerBuffering from "./BannerBuffering";
+import { useDispatch } from "react-redux";
+import movieAction from "./Actions/MovieAction";
 
 const Movies = () => {
   const [showMovieBanner, setShowMovieBanner] = useState(null);
   const [showMovies, setShowMovies] = useState([]);
   const [category, setCategory] = useState("all");
 
-
+  const dispatch = useDispatch()
   const navigate = useNavigate();
 
   async function renderPopulaMovie() {
@@ -32,7 +34,7 @@ const Movies = () => {
       console.log("Error", e);
     }
   }
-  console.log("Popular", showMovieBanner);
+  console.log("DispatchMovies", showMovies);
 
   async function renderMovie() {
     try {
@@ -51,8 +53,10 @@ const Movies = () => {
   }, [category]);
 
   useEffect(()=>{
-
-  },[])
+    if(showMovieBanner){
+      dispatch(movieAction(showMovieBanner.id))
+    }
+  },[showMovieBanner])
 
   return (
     <div className="w-full border pb-15 px-4 pt-4 backdrop-blur-sm  flex flex-col border-white justify-center items-center gap-8 ">

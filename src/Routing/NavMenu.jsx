@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom'
 
 const NavMenu = () => {
   return (
-    <div className='w-full fixed bottom-0 right-0 z-10 flex justify-center p-2 border-white transition-all duration-500 ease-in-out transform animate-fade-slide'>
-        <div className="border-[#aaaaaa] border w-full justify-center flex  p-4 rounded-full bg-[#ffffff26] backdrop-blur-2xl">
+    <div className='w-full fixed bottom-0 right-0 z-50 flex justify-center p-2 border-white transition-all  duration-500 ease-in-out transform animate-fade-slide'>
+        <div className="border-[#aaaaaa] border w-full justify-center flex  p-4 rounded-full bg-[#ffffff27] backdrop-blur-2xl">
 
         {/* <div className='border border-white w-fit flex gap-5 ' > */}
         <NavLink  to='/' className={({isActive})=>{

@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const tvSlice = createSlice({
   name: "movie",
   initialState: {
-    movie: [],
+    tv: [],
   },
   reducers: {
     loadTv: (state, action) => {
@@ -16,4 +16,4 @@ const tvSlice = createSlice({
 });
 
 export default tvSlice.reducer;
-export const { addMovie, removeTv } = tvSlice.actions;
+export const { addTv, removeTv } = tvSlice.actions;

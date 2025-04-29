@@ -13,7 +13,7 @@ const movieAction = (id) => async (dispatch) => {
       movieRecommendatation: movieRecommendatation.data,
       movieVideo: movieVideo.data,
     };
-    console.log("MovieAction", collectionOfData);
+    console.log("Collection-data", collectionOfData);
   } catch (error) {
     console.log(error);
   }

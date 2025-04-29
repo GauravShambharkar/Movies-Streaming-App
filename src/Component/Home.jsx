@@ -26,6 +26,10 @@ const Home = () => {
   useEffect(() => {
     getData();
     console.log("from the state", showData);
+    window.scrollTo(0, 0);
+    return () => {
+      console.clear();
+    };
   }, []);
 
   return (
@@ -81,16 +85,11 @@ const Home = () => {
 
         <div className="gap-6 grid sm:grid-cols-2 md:grid-cols-4 mt-6">
           {showData.map((item, index) => (
-            <div
-              onClick={() => {
-                navigate(`/movies/${slugify(item.name || item.title)}`, {
-                  state: item,
-                });
-              }}
-              key={index}
-              className="bg-[#1a1a1a] cursor-pointer shadow p-4 rounded-xl hover:scale-105 transition-transform"
+            <div key={index}
+              className="bg-[#1a1a1a] shadow p-4 rounded-xl hover:scale-105 transition-transform"
             >
-              <img className="rounded-md"
+              <img
+                className="rounded-md"
                 src={`https://image.tmdb.org/t/p/original/${
                   item.backdrop_path || item.poster_path
                 }`}
@@ -102,7 +101,14 @@ const Home = () => {
                   item.title ||
                   item.original_title}
               </h4>
+              <div className="flex justify-between items-center">
               <p className="text-[#bbbbbb] text-sm">Now Streaming</p>
+                <span  onClick={() => {
+                navigate(`/movies/${slugify(item.name || item.title)}`, {
+                  state: item,
+                });
+              }} className="text-sm px-2 py-1 cursor-pointer rounded-full bg-blue-400">Watch Now</span>
+              </div>
             </div>
           ))}
         </div>
