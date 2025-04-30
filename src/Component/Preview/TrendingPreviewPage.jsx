@@ -10,9 +10,10 @@ import {
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import BannerBuffering from "../BannerBuffering";
 import axios from "../Axios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import movieAction from "../Actions/MovieAction";
 import CardBuffering from "../CardBuffering";
+import slugify from "slugify";
 
 const TrendingPreviewPage = () => {
   const navigate = useNavigate();
@@ -23,6 +24,10 @@ const TrendingPreviewPage = () => {
   const [detail, setDetails] = useState([]);
   const [getRecomendation, setRecomendation] = useState([])
 
+  const {info}  = useSelector( state => state.movieReducer)
+  console.log(info);
+  
+
   async function TrendingDetails() {
     const TrendingDetails = await axios.get(`movie/${item.id}`);
     setDetails(TrendingDetails.data);
@@ -31,16 +36,11 @@ const TrendingPreviewPage = () => {
 
 
   async function recommendations() {
-    const recommendations = await axios.get(`movie/${item.id}/recommendations`);
-    setRecomendation(recommendations.data.results);
+    // const recommendations = await axios.get(`movie/${item.id}/recommendations`);
+    if(info){
+    await setRecomendation(info.movieRecommendation);
+    }
   }
-
-  // function Recomendation(){
-  //   const trendingRecomendation = axios.get(`movie/${item.id}/recommendations`)
-  //   setRecomendation(trendingRecomendation)
-  // }
-
-  // console.log("Recom ",getRecomendation);
 
   useEffect(() => {
     TrendingDetails();
@@ -49,10 +49,16 @@ const TrendingPreviewPage = () => {
     dispatch(movieAction(item.id));
   }, []);
 
+  useEffect(()=>{
+    if(info){
+      recommendations()
+    }
+  },[info])
+
   return (
     <>
       <div
-        className="w-fullpb-15 px-4 pt-4 border-white bg-black space-y-2 p-4 "
+        className="w-full pb-15 px-4 pt-4 border-white bg-black space-y-2 p-4 "
         // style={{
         //   backgroundImage: `linear-gradient(to top, #000000 , rgba(0,0,0,0.10), rgba(0, 0, 0, 0)), url(https://image.tmdb.org/t/p/original/${
         //     item.backdrop_path || item.profile_path
@@ -125,10 +131,10 @@ const TrendingPreviewPage = () => {
           <h1 className="text-black  px-2 font-medium w-fit bg-[yellow] rounded-full text-center  mt-2 flex">Recomendation<RiArrowRightDownLine/></h1>
           </div> */}
         <div className="grid p-4 mx-auto border-white md:grid-cols-4 sm:grid-cols-2 gap-6 w-full max-w-7xl">
-          { getRecomendation.length>0? getRecomendation.map((item, index) => {
+          { getRecomendation ? getRecomendation.map((item, index) => {
             return <div
               key={index}
-              className="bg-[#1e1e1e] relative justify-between border-[#ffffff] p-4 flex flex-col gap-2 rounded-2xl shadow-lg hover:scale-101 transition-transform duration-200 "
+              className="bg-[#1e1e1e]  relative justify-between border-[#ffffff] p-4 flex flex-col gap-2 rounded-2xl shadow-lg hover:scale-101 transition-transform duration-200 "
             >
               <h1 className="text-black border-b absolute text-[14px] items-center top-0 px-2 font-medium w-fit bg-[#f7ff66] backdrop-blur-2xl rounded-full text-center  mt-2 flex">Recomendation<RiArrowRightDownLine className="size-5 " /></h1>
 
