@@ -60,6 +60,7 @@ const Routing = () => {
         </Route>
         <Route path='movies/playing/:slug' element={<PlayingMovies/>}/>
         <Route path='popular/playing/:slug' element={<PlayingPopular/>}/>
+        <Route path='tvShow/playing/:slug' element={<PlayingPopular/>}/>
       </Routes>
     </>
   );
