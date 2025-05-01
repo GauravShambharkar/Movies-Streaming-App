@@ -164,7 +164,7 @@ const TrendingPreviewPage = () => {
                 </span>
                 <span
                   onClick={() => {
-                    navigate(`/movies/playing/${slugify(item.name || item.title)}`, {
+                    navigate(`/trending/playing/${slugify(item.name || item.title)}`, {
                       state: item,
                     }), <a href='#'/>
                   }}
