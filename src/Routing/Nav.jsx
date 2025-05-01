@@ -49,8 +49,14 @@ const Nav = () => {
     }
   }
 
+
   useEffect(() => {
+    const handler = setTimeout(() => {
     getSearch();
+    }, 500); // 500ms debounce time
+    return () => {
+      clearTimeout(handler); // clear on re-render
+    };
   }, [query]);
 
   const toHome = () => {
@@ -201,7 +207,7 @@ const Nav = () => {
           ) : (
             <div className="  border-white flex justify-center">
               {" "}
-              <h1 className="text-white">Nothing found...</h1>
+              <h1 className="text-white">Searching...</h1>
             </div>
           )}
         </div>
