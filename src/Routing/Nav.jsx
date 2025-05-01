@@ -33,7 +33,7 @@ const Nav = () => {
       item.known_for?.forEach((k) => {
         if (k.media_type === "movie") {
           // console.log("movie", k);
-          navigate(`/movie/${k.id}`)
+          navigate(`/movie/${k.original_title || k.original_name || k.title || k.name}`)
         }
       });
     });

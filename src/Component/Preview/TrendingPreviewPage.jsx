@@ -33,6 +33,7 @@ const TrendingPreviewPage = () => {
     setDetails(TrendingDetails.data);
   }
   console.log("State ", detail);
+  
 
 
   async function recommendations() {
