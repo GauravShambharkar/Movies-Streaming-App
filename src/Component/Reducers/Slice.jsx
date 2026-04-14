@@ -9,9 +9,8 @@ const DataSlice = createSlice({
     addMovie: (state, action) => {
       state.movie.push(action.payload);
     },
-    
   },
 });
 
 export default DataSlice.reducer;
-export const {addMovie} = DataSlice.actions
+export const { addMovie } = DataSlice.actions;

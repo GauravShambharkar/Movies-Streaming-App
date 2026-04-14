@@ -52,7 +52,7 @@ const Trending = () => {
   async function renderBanner() {
     try {
       const showdata = await axios.get(`/trending/all/day`);
-      console.log(showdata.data.results);
+      console.log("trending banner : ",showdata);
       const randomeBanner =
         showdata.data.results[
           (Math.random() * showdata.data.results.length).toFixed()

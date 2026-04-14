@@ -1,9 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "../Axios";
 
-const movieSlice =  createSlice({
-
-
+const movieSlice = createSlice({
   name: "movie",
   initialState: {
     movie: [],

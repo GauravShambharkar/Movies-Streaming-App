@@ -19,7 +19,6 @@ const Nav = () => {
   // console.log(query);
   const navigate = useNavigate();
 
-
   function removeSearchQuery() {
     document.querySelector("input").value = "";
   }
@@ -33,7 +32,9 @@ const Nav = () => {
       item.known_for?.forEach((k) => {
         if (k.media_type === "movie") {
           // console.log("movie", k);
-          navigate(`/movie/${k.original_title || k.original_name || k.title || k.name}`)
+          navigate(
+            `/movie/${k.original_title || k.original_name || k.title || k.name}`,
+          );
         }
       });
     });
@@ -41,18 +42,19 @@ const Nav = () => {
 
   async function getSearch() {
     try {
-      const showData = await axios.get(`/search/multi?query=${query}`);
-      setShowQueryData(showData.data.results);
+      const showData = await axios.get(`/search/multi?query=` + query);
+      setTimeout(() => {
+        setShowQueryData(showData.data.results);
+      }, 380);
       console.log(showData.data.results);
     } catch {
       console.log("error");
     }
   }
 
-
   useEffect(() => {
     const handler = setTimeout(() => {
-    getSearch();
+      getSearch();
     }, 500); // 500ms debounce time
     return () => {
       clearTimeout(handler); // clear on re-render
@@ -144,7 +146,7 @@ const Nav = () => {
             {query.length > 0 ? (
               <RiCloseLargeLine
                 onClick={() => {
-                  setQuery(""), removeSearchQuery();
+                  (setQuery(""), removeSearchQuery());
                 }}
                 className="cursor-pointer text-white"
               />
@@ -173,7 +175,9 @@ const Nav = () => {
               return (
                 <div
                   key={id}
-                  onClick={()=>{toTheRoute(),setQuery(""),removeSearchQuery()}}
+                  onClick={() => {
+                    (toTheRoute(), setQuery(""), removeSearchQuery());
+                  }}
                   className="flex border gap-4 max-md:h-40 cursor-pointer border-white bg-[#1d1d1d] w-full rounded-sm child hover:bg-[#2c2c2c] duration-220 transition-colors ease-in-out"
                 >
                   <img
