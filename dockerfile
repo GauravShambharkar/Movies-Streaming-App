@@ -18,6 +18,7 @@ FROM node:22-alpine
 WORKDIR /app
 
 RUN npm i -g serve
+
 ENV path="/user/local/bin:$PATH"
 
 COPY --from=build /app/dist ./dist

@@ -4,12 +4,12 @@ services:
   restart: unless-stopped
 
   client:
-  container_name: movie-app
-  build: ./
-  ports:
-    - "3000:3000"
-  networks:
-    - client-net
+    container_name: movie-app
+    build: ./
+    ports:
+      - "3000:3000"
+    networks:
+      - client-net
 
 networks:
   client-net:
